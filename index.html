@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
+<html>
+<header>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La pépinière</title>
-    <script src="structure.js" defer></script>
-</head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>La pépinière</title> 
+    <script src="script.js" defer></script>
+</header>
 <body>
-    <nav></nav>
-    <main></main>
-    <footer></footer>
+    <nav id="nav" class="accueil-view">
+        <img alt="logo" src="images/logo.svg">
+        <ul>
+            <li><a id="a-element-accueil" class="menuElements">Accueil</a></li>
+            <li><a id="a-element-arbres" class="menuElements">Arbres</a></li>
+            <li><a id="a-element-fleurs" class="menuElements">Fleurs</a></li>
+            <li><a id="a-element-materiel"  class="menuElements">Matériel</a></li>
+            <li id="search-bar"><input id="search-bar-input" type="text" placeholder="Rechercher"><img id="search-logo" onclick="search()" alt="search-img" src="images/search-img.svg"></li>
+            <li><a id="a-element-garantie" class="menuElements">Garantie</a></li>
+            <li><a id="a-element-contact" class="menuElements">Contact</a></li>
+            <li><a id="a-element-panier" class="menuElements">Panier</a><span id="qte-items-container" hidden></span></li>
+        </ul>
+    </nav>
+    <div id="detail-view-container" hidden></div>
+    <div id="context-menu-container" hidden></div>
+    <main id="main" class="accueil-view"></main>
 </body>
 </html>
