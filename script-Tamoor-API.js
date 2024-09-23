@@ -20,9 +20,10 @@ function countryoption() {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             return response.json();
+            
         })
         .then(data => {
-            console.log('Countries API Response:', data);
+            //console.log('Countries API Response:', data);
             const countrySelect = document.getElementById('country-option');
 
             if (countrySelect && Array.isArray(data)) {
@@ -32,6 +33,7 @@ function countryoption() {
                     option.text = country.name; 
                     countrySelect.appendChild(option);
                 });
+                
             } else {
                 console.error('Invalid country data structure or select element not found');
             }
@@ -46,10 +48,10 @@ function currencyoption() {
     return fetch('https://freetestapi.com/api/v1/currencies')
         .then(response => response.json())
         .then(data => {
-            console.log('Currencies API Response:', data); 
-            currencyData = data.data || []; 
+            //console.log('Currencies API Response:', data); 
+            currencyData = data; 
 
-            console.log('Currency Data:', currencyData); 
+            //console.log('Currency Data:', currencyData); 
 
             const currencySelect = document.getElementById('currency-option');
             if (currencySelect) {
@@ -57,7 +59,7 @@ function currencyoption() {
                 currencyData.forEach(currency => {
                     const option = document.createElement('option');
                     option.value = currency.code; 
-                    option.text = currency.name; 
+                    option.text = currency.code; 
                     currencySelect.appendChild(option);
                 });
             } else {
@@ -85,7 +87,7 @@ function getCountryFromIP(ip) {
             const countrySelect = document.getElementById('country-option');
             const countryName = data.country; 
 
-            console.log('Detected country:', countryName); 
+            //console.log('Detected country:', countryName); 
             if (countrySelect && countryName) {
               
                 const matchingOption = Array.from(countrySelect.options).find(option => option.text === countryName);
@@ -107,7 +109,7 @@ function updateCurrencyByCountry(countryName) {
 
     if (currencySelect && matchingCurrency) {
         currencySelect.value = matchingCurrency.code;
-        console.log(`Currency updated to: ${matchingCurrency.code}`);
+        //console.log(`Currency updated to: ${matchingCurrency.code}`);
     } else {
         console.warn(`No currency found for country: ${countryName}`);
     }
@@ -115,10 +117,10 @@ function updateCurrencyByCountry(countryName) {
 
 
 function findCurrencyByCountryName(countryName) {
-    console.log(`Looking for currency for country: ${countryName}`);
+    //console.log(`Looking for currency for country: ${countryName}`);
 
     
-    console.log('Currency Data:', currencyData);
+    //console.log('Currency Data:', currencyData);
     
     
     const matchingCurrency = currencyData.find(currency => 
@@ -134,7 +136,7 @@ function findCurrencyByCountryName(countryName) {
 
 function search() {
     const query = document.getElementById('search-bar-input').value;
-    console.log("Searching for:", query);
+    //console.log("Searching for:", query);
 }
 
 
