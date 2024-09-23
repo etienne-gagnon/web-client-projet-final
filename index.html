@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
-<header>
+<html lang="en">
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" href="style.css">
     <title>La pépinière</title> 
     <script src="script-Tamoor-API.js" defer></script>
-</header>
+</head>
 <body>
     <nav id="nav" class="accueil-view">
         <img alt="logo" src="images/logo.svg">
@@ -22,17 +22,12 @@
         </ul>
         
         <label for="pays">Pays</label>
-            <select name="Pays" id="countryOption">
-            <option value="">Canada</option>
-            <option value="saab">Maroc</option>
-            </select>
-        <label for="Monnaie">Monnaie</label>
-        <select name="Pays" id="currencyOption"><br>
-            <option value="cad">CAD</option>
+        <select name="Pays" id="country-option"></select>
 
-        </select>
-
+        <label for="monnaie">Monnaie</label>
+        <select name="Monnaie" id="currency-option"></select>
     </nav>
+    
     <div id="detail-view-container" hidden></div>
     <div id="context-menu-container" hidden></div>
     <main id="main" class="accueil-view"></main>
