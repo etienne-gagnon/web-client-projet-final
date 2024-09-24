@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" href="style.css">
     <title>La pépinière</title> 
+    <script src="script.js" defer></script>
     <script src="script-Tamoor-API.js" defer></script>
 </head>
 <body>
@@ -16,18 +17,19 @@
             <li><a id="a-element-fleurs" class="menuElements">Fleurs</a></li>
             <li><a id="a-element-materiel"  class="menuElements">Matériel</a></li>
             <li id="search-bar"><input id="search-bar-input" type="text" placeholder="Rechercher"><img id="search-logo" onclick="search()" alt="search-img" src="images/search-img.svg"></li>
-            <li><a id="a-element-garantie" class="menuElements">Garantie</a></li>
-            <li><a id="a-element-contact" class="menuElements">Contact</a></li>
+            <li><select name="Pays" id="country-option"></select></li>
+            <li><select name="Monnaie" id="currency-option"></select></li>
             <li><a id="a-element-panier" class="menuElements">Panier</a><span id="qte-items-container" hidden></span></li>
         </ul>
-        
-        <label for="pays">Pays</label>
-        <select name="Pays" id="country-option"></select>
-
-        <label for="monnaie">Monnaie</label>
-        <select name="Monnaie" id="currency-option"></select>
     </nav>
     
+    <footer id="footer">
+        <ul>
+            <li><a id="a-element-garantie" class="menuElements">Garantie</a></li>
+            <li><a id="a-element-contact" class="menuElements">Contact</a></li>
+        </ul>
+    </footer>
+
     <div id="detail-view-container" hidden></div>
     <div id="context-menu-container" hidden></div>
     <main id="main" class="accueil-view"></main>

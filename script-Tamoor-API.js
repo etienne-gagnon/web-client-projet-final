@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     countryoption();
     currencyoption();
     detectUserLocation();
-
+    
     const countrySelect = document.getElementById('country-option');
     if (countrySelect) {
         countrySelect.addEventListener('change', (event) => {
@@ -25,12 +25,13 @@ function countryoption() {
         .then(data => {
             //console.log('Countries API Response:', data);
             const countrySelect = document.getElementById('country-option');
-
             if (countrySelect && Array.isArray(data)) {
                 data.forEach(country => {
+                    let countryName = country.name;
+
                     const option = document.createElement('option');
                     option.value = country.id;  
-                    option.text = country.name; 
+                    option.text = countryName.substring(0,15); 
                     countrySelect.appendChild(option);
                 });
                 

@@ -41,7 +41,7 @@ a:hover, .active{
     text-underline-offset: 7px;
 }
 
-input{
+input, select{
     font-size: 1em;
 }
 
@@ -60,6 +60,23 @@ nav{
     z-index:1;
 }
 
+footer{
+    display: flex;
+    position: fixed;
+    bottom:50px;
+    right:50px;
+    flex-direction: row;
+    background-color: var(--vert-opacity-80);
+    color:var(--blanc);
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    box-sizing: border-box;
+    padding:0 25px 0 25px;
+    border-radius:5px;
+    z-index:1;
+}
+
 #logo{
     margin-left:auto;
     
@@ -72,6 +89,16 @@ nav ul{
     flex-wrap: wrap;
     list-style-type:none;
     gap:25px;
+    cursor:pointer;
+}
+
+footer ul{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type:none;
+    gap:25px;
+    padding:0;
     cursor:pointer;
 }
 
@@ -96,6 +123,20 @@ nav input{
 
 nav input::placeholder{
     color:var(--blanc-opacity-50);
+}
+
+nav select{
+    background-color:var(--blanc-opacity-20);
+    border:none;
+    box-sizing: border-box;
+    color: var(--blanc);
+    border-radius: 5px;
+    padding:5px 10px 5px 10px;
+    height:40px;
+}
+
+nav select option{
+    color: var(--noir);
 }
 
 #search-logo{
