@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./charles.css">
+    <script src="./charles.js" defer></script>
+</head>
+<body>
+    <style>
+        /* Style pour améliorer la lisibilité du textarea */
+        textarea {
+            width: 100%;
+            height: 300px;  /* Ajuster la hauteur pour un meilleur aperçu */
+            font-family: "Courier New", monospace;  /* Utiliser une police mono-espacée */
+            font-size: 14px;  /* Taille de la police pour une meilleure lecture */
+            line-height: 1.5;  /* Espacement entre les lignes */
+            padding: 10px;  /* Ajouter du padding pour espacer le contenu des bords */
+            border: 1px solid #ccc;  /* Bordure grise douce */
+            background-color: #f9f9f9;  /* Couleur de fond douce */
+            white-space: pre;  /* Assurer que les espaces et sauts de ligne sont respectés */
+        }
+    </style>
+    <div id="login-section">
+        <h2>Connexion Administrateur</h2>
+        <label>Nom d'utilisateur :</label>
+        <input type="text" id="username" required><br>
+        <label>Mot de passe :</label>
+        <input type="password" id="password" required><br>
+        <button onclick="login()">Se connecter</button>
+    </div>
+
+    <div id="admin-section" style="display:none;">
+        <h2>Modifier le Contenu</h2>
+        <textarea id="content"></textarea><br>
+        <button id="save-button">Sauvegarder</button>
+        <button id="logout-button">Se déconnecter</button>
+    </div>
+</body>
+</html>
