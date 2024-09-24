@@ -1,4 +1,15 @@
 {
+    "navigation":
+    {
+        "acceuil": "Home",
+        "arbre": "Tree",
+        "fleurs": "Flower",
+        "materiel": "Equipment",
+        "searchBar": "Search",
+        "panier": "Cart",
+        "btnFr": "French",
+        "btnEn": "English"
+    },
     "produits": [
         {
             "id": 1,

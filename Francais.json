@@ -1,6 +1,16 @@
 
 {
-
+    "navigation":
+    {
+        "acceuil": "Acceuil",
+        "arbre": "Arbre",
+        "fleurs": "Fleurs",
+        "materiel": "Matériel",
+        "searchBar": "Rechercher",
+        "panier": "Panier",
+        "btnFr": "Francais",
+        "btnEn": "Anglais"
+    },
 "accueilView":[
     {
         "titre": "Bienvenue à La Pépinière !",
