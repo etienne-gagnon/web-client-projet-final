@@ -1,0 +1,11 @@
+[
+    {
+      "id": 1,
+      "nom": "Rosier Éternel",
+      "description": "Un rosier classique aux fleurs rouges éclatantes, parfait pour ajouter une touche romantique à votre jardin. Résistant aux maladies et facile d'entretien, il fleurit tout au long de l'été.",
+      "prix": 29.99,
+      "wikipedia": "https://fr.wikipedia.org/wiki/Rosier",        
+      "categories": ["arbre"],
+      "stock": 5
+    }
+]
