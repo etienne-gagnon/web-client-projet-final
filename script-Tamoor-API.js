@@ -82,15 +82,14 @@ function detectUserLocation() {
 }
 
 function getCountryFromIP(ip) {
-    fetch(`https://ip-api.com/json/${ip}`)  
+    fetch(`https://ipapi.co/${ip}/json/`)
         .then(response => response.json())
         .then(data => {
             const countrySelect = document.getElementById('country-option');
-            const countryName = data.country; 
+            const countryName = data.country_name; 
 
-            //console.log('Detected country:', countryName); 
+    
             if (countrySelect && countryName) {
-              
                 const matchingOption = Array.from(countrySelect.options).find(option => option.text === countryName);
                 if (matchingOption) {
                     countrySelect.value = matchingOption.value;
@@ -102,6 +101,7 @@ function getCountryFromIP(ip) {
         })
         .catch(error => console.error('Error fetching country by IP:', error));
 }
+
 
 
 function updateCurrencyByCountry(countryName) {
