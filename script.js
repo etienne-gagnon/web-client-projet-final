@@ -1,121 +1,5 @@
-
-// Copyrights 
-console.log("© Étienne Gagnon, Tous droits réservés");
-
-
-
 // Produits 
-let produits =[
-    {
-        id:1,
-        nom: "Rosier Éternel",
-        description: "Un rosier classique aux fleurs rouges éclatantes, parfait pour ajouter une touche romantique à votre jardin. Résistant aux maladies et facile d'entretien, il fleurit tout au long de l'été.",
-        prix: 29.99,
-        wikipedia : " https://fr.wikipedia.org/wiki/Rosier",        
-        categories: ["arbre"],
-        stock: 5
-    },
-    {
-        id:2,
-        nom : "Érable à Sucre",
-        description : "L'érable à sucre est un arbre emblématique du Canada, connu pour ses magnifiques couleurs automnales et son sirop d'érable. Il peut atteindre une hauteur de 25 à 35 mètres, idéal pour les grands jardins.",
-        prix : 79.99,
-        wikipedia : "https://fr.wikipedia.org/wiki/%C3%89rable_%C3%A0_sucre",  
-        categories : ["arbre"],
-        stock : 5
-    },
-    {
-        id:3,
-        nom : "Sapin de Douglas",
-        description : "Un conifère majestueux, souvent utilisé comme arbre de Noël. Le sapin de Douglas est apprécié pour son bois durable et son port élancé. Il est également parfait pour créer des haies naturelles.",
-        prix : 99.99,
-        wikipedia : "https://fr.wikipedia.org/wiki/Pseudotsuga_menziesii",  
-        categories : ["arbre"],
-        stock : 5
-    },
-    {
-        id:4,
-        nom : "Chêne Rouge",
-        description : "Ce chêne robuste est célèbre pour son bois précieux et sa longévité. Il offre un magnifique feuillage rouge en automne et peut vivre plusieurs siècles. Parfait pour apporter une touche de grandeur à votre jardin.",
-        prix : 89.99,
-        wikipedia : "https://fr.wikipedia.org/wiki/Ch%C3%AAne_rouge_d%27Am%C3%A9rique",  
-        categories : ["arbre"],
-        stock : 5
-    },
-    {
-        id:5,
-        nom : "Cerisier à Fleurs",
-        description : "Aussi connu sous le nom de cerisier japonais, cet arbre est célèbre pour ses magnifiques fleurs roses ou blanches au printemps. Idéal pour les petits jardins, il apporte une touche de beauté éphémère et délicate.",
-        prix : 69.99,
-        wikipedia : "https://fr.wikipedia.org/wiki/Cerisier",  
-        categories : ["arbre"],
-        stock : 5
-    },
-    {
-        id:6,
-        nom : "Saule Pleureur",
-        description : "Le saule pleureur est un arbre majestueux, reconnu pour ses longues branches tombantes. Il est parfait pour les zones humides et offre un cadre romantique près d'un étang ou d'un cours d'eau.",
-        prix : 89.99,
-        wikipedia : "https://fr.wikipedia.org/wiki/Saule_pleureur",  
-        categories : ["arbre"],
-        stock : 5
-    },{
-        id:7,
-        nom : "Magnolia",
-        description : "Le magnolia est apprécié pour ses grandes fleurs parfumées qui apparaissent au printemps. Il est souvent planté comme arbre ornemental dans les jardins, où il attire l'œil par sa floraison spectaculaire.",
-        prix : 79.99,
-        wikipedia : "https://fr.wikipedia.org/wiki/Magnolia",  
-        categories : ["arbre"],
-        stock : 5
-    },
-    {
-        id:8,
-        nom : "Bouleau Blanc",
-        description : "Ce bel arbre à l'écorce blanche et lisse est un excellent choix pour apporter de la luminosité à un jardin. Le bouleau blanc pousse rapidement et est résistant aux conditions froides.",
-        prix : 74.99,
-        wikipedia : "https://fr.wikipedia.org/wiki/Bouleau_%C3%A0_papier",  
-        categories : ["arbre"],
-        stock : 5
-    },
-    {
-        id:9,
-        nom : "Reine des Neiges",
-        description : "Cette variété de rose blanche, également connue sous le nom de 'Reine des Neiges', est réputée pour sa floraison abondante et continue. Ses fleurs parfumées et élégantes illuminent les jardins du printemps à l'automne. Parfaite pour créer des massifs fleuris ou des haies parfumées.",
-        prix : 24.99,
-        wikipedia : "https://fr.wikipedia.org/wiki/Edelweiss",  
-        categories : ["fleur"],
-        stock : 5
-    },
-    {
-        id:10,
-        nom : "La lavande",
-        description : "La lavande 'Grosso' est une plante aromatique au parfum envoûtant, appréciée pour ses épis de fleurs violettes. Idéale pour les jardins secs et ensoleillés, elle attire les abeilles et papillons, tout en étant résistante à la sécheresse. Parfaite pour des bordures ou en pot.",
-        prix : 14.99,
-        wikipedia : "https://fr.wikipedia.org/wiki/Lavande",  
-        categories : ["fleur"],
-        stock : 5
-    },
-    {
-        id:11,
-        nom: "Pelle",
-        description: "Pelle de jardin robuste et durable, idéale pour creuser, planter et remuer la terre. Conception ergonomique pour un confort d'utilisation optimal.",
-        prix: 14.99,
-        wikipedia : "https://fr.wikipedia.org/wiki/Pelle_(outil)",  
-        categories: ["materiel"],
-        stock: 20
-    },
-    {
-        id:12,
-        nom: "Terre",
-        description: "Terre de qualité supérieure, parfait pour enrichir le sol de votre jardin et améliorer la croissance de vos plantes. Convient pour tous les types de plantes et de fleurs.",
-        prix: 9.99,
-        wikipedia : "https://fr.wikipedia.org/wiki/Terreau",  
-        categories: ["materiel"],
-        stock: 30
-    }
-];
-
-
+let produits = [];
 
 // Variables 
 let qteItemsPanier = 0;
@@ -123,11 +7,56 @@ let panier = [];
 let menuElements = document.getElementsByClassName("menuElements");
 let nav = document.getElementById("nav");
 let main = document.getElementById("main");
+let langue = "Francais";
 
+console.log(langue);
+
+function fetchProduits() {
+    return fetch(langue + '.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur lors de la récupération des données');
+            }
+            return response.json();
+        })
+        .then(data => {
+            produits = [];
+            data.produits.forEach(produit => {
+                produits.push({
+                    id: produit.id,
+                    nom: produit.nom,
+                    description: produit.description,
+                    prix: produit.prix,
+                    wikipedia: produit.wikipedia,
+                    categories: produit.categories, 
+                    stock: produit.stock
+                });
+            });
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+        });
+}
+
+fetchProduits();
+
+function changeLangue(value) {
+    langue = value;
+    console.log(langue);
+
+    changeView("accueil-view");
+    
+    fetchProduits().then(() => {
+        let currentView = document.getElementById("main").className;
+        changeView(currentView);
+    });
+}
 
 
 // Afficher le bon contenu en fonction du tag <a> sélectionné
 document.body.addEventListener("onload", changeView("accueil-view"));
+
+
 
 for(let i = 0;i<menuElements.length;i++){
    
@@ -157,8 +86,15 @@ function changeView(view){
         document.getElementById("a-element-contact").classList.remove("active");
         document.getElementById("a-element-garantie").classList.remove("active");
         
-        main.innerHTML = "<div id='mot-bienvenue'><h1>Bienvenue à La Pépinière !</h1><p>Découvrez un espace où la nature prend vie et s'épanouit. Que vous soyez un amateur de jardinage ou un professionnel du paysage, notre pépinière vous offre une vaste sélection de plantes, d'arbres et d'arbustes de qualité supérieure. Laissez-vous inspirer par notre passion pour la verdure et transformez votre jardin en un véritable havre de paix.</p></div><img id='background-img' src='images/background.jpg'>";
+
+        if(langue == "Francais"){
+            main.innerHTML = "<div id='mot-bienvenue'><h1>Bienvenue à La Pépinière !</h1><p>Découvrez un espace où la nature prend vie et s'épanouit. Que vous soyez un amateur de jardinage ou un professionnel du paysage, notre pépinière vous offre une vaste sélection de plantes, d'arbres et d'arbustes de qualité supérieure. Laissez-vous inspirer par notre passion pour la verdure et transformez votre jardin en un véritable havre de paix.</p></div><img id='background-img' src='images/background.jpg'>";
+        }else if(langue == "Anglais"){
+            main.innerHTML = "<div id='mot-bienvenue'><h1>Welcome to La Pépinière!</h1><p>Discover a space where nature comes to life and flourishes. Whether you are a gardening enthusiast or a landscaping professional, our nursery offers a wide selection of high-quality plants, trees, and shrubs. Let yourself be inspired by our passion for greenery and transform your garden into a true haven of peace.</p></div><img id='background-img' src='images/background.jpg'>";
+        }
     
+        
+
     } else if (view == "arbres-view"){
         document.getElementById("a-element-accueil").classList.remove("active");
         document.getElementById("a-element-arbres").classList.add("active");
@@ -168,12 +104,16 @@ function changeView(view){
         document.getElementById("a-element-contact").classList.remove("active");
         document.getElementById("a-element-garantie").classList.remove("active");
 
-        main.innerHTML = "<h1>Arbres</h1><p>Découvrez notre gamme complète d'arbres !</p><div id='product-container'></div>";
+        if(langue == "Francais"){
+            main.innerHTML = "<h1>Arbres</h1><p>Découvrez notre gamme complète d'arbres !</p><div id='product-container'></div>";
+        }else if(langue == "Anglais"){
+            main.innerHTML = "<div id='mot-bienvenue'><h1>Welcome to La Pépinière!</h1><p>Discover a space where nature comes to life and flourishes. Whether you are a gardening enthusiast or a landscaping professional, our nursery offers a wide selection of high-quality plants, trees, and shrubs. Let yourself be inspired by our passion for greenery and transform your garden into a true haven of peace.</p></div><img id='background-img' src='images/background.jpg'>";
+        }
         
         let productContainer = document.getElementById("product-container");
 
         for(let i = 0;i < produits.length;i++){
-            if(produits[i].categories == "arbre"){
+            if(produits[i].categories == "arbre" || produits[i].categories == "tree" ){
                 
                     let imgSrc = "images/"+produits[i].id+"-1.png";
 
@@ -184,7 +124,6 @@ function changeView(view){
                         productCard.setAttribute("onclick", "showDetails('"+produits[i].id+"')");
                         productCard.setAttribute("oncontextmenu", "showContextMenu('"+produits[i].id+"')");
                         productContainer.appendChild(productCard);             
-
             }
         }     
     
@@ -202,7 +141,7 @@ function changeView(view){
         let productContainer = document.getElementById("product-container");
 
         for(let i = 0;i < produits.length;i++){
-            if(produits[i].categories == "fleur"){
+            if(produits[i].categories == "fleur" || produits[i].categories == "flower" ){
                 
                     let imgSrc = "images/"+produits[i].id+"-1.png";
 
@@ -230,7 +169,7 @@ function changeView(view){
         let productContainer = document.getElementById("product-container");
 
         for(let i = 0;i < produits.length;i++){
-            if(produits[i].categories == "materiel"){
+            if(produits[i].categories == "materiel" || produits[i].categories == "equipment" ){
                 
                     let imgSrc = "images/"+produits[i].id+"-1.png";
 

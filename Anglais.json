@@ -1,0 +1,112 @@
+{
+    "produits": [
+        {
+            "id": 1,
+            "nom": "Eternal Rose",
+            "description": "A classic rose with bright red flowers, perfect for adding a romantic touch to your garden. Resistant to diseases and easy to maintain, it blooms throughout the summer.",
+            "prix": 29.99,
+            "wikipedia": "https://fr.wikipedia.org/wiki/Rosier",        
+            "categories": "tree",
+            "stock": 5
+        },
+        {
+            "id": 2,
+            "nom": "Sugar Maple",
+            "description": "The sugar maple is an iconic tree of Canada, known for its beautiful autumn colors and maple syrup. It can reach a height of 25 to 35 meters, ideal for large gardens.",
+            "prix": 79.99,
+            "wikipedia": "https://fr.wikipedia.org/wiki/%C3%89rable_%C3%A0_sucre",  
+            "categories": "tree",
+            "stock": 5
+        },
+        {
+            "id": 3,
+            "nom": "Douglas Fir",
+            "description": "A majestic conifer, often used as a Christmas tree. The Douglas fir is appreciated for its durable wood and slender form. It is also perfect for creating natural hedges.",
+            "prix": 99.99,
+            "wikipedia": "https://fr.wikipedia.org/wiki/Pseudotsuga_menziesii",  
+            "categories": "tree",
+            "stock": 5
+        },
+        {
+            "id": 4,
+            "nom": "Red Oak",
+            "description": "This robust oak is famous for its valuable wood and longevity. It offers beautiful red foliage in autumn and can live for several centuries. Perfect for adding a touch of grandeur to your garden.",
+            "prix": 89.99,
+            "wikipedia": "https://fr.wikipedia.org/wiki/Ch%C3%AAne_rouge_d%27Am%C3%A9rique",  
+            "categories": "tree",
+            "stock": 5
+        },
+        {
+            "id": 5,
+            "nom": "Flowering Cherry",
+            "description": "Also known as the Japanese cherry, this tree is famous for its beautiful pink or white flowers in spring. Ideal for small gardens, it adds a touch of ephemeral and delicate beauty.",
+            "prix": 69.99,
+            "wikipedia": "https://fr.wikipedia.org/wiki/Cerisier",  
+            "categories": "tree",
+            "stock": 5
+        },
+        {
+            "id": 6,
+            "nom": "Weeping Willow",
+            "description": "The weeping willow is a majestic tree, known for its long, drooping branches. It is perfect for wet areas and provides a romantic setting near a pond or stream.",
+            "prix": 89.99,
+            "wikipedia": "https://fr.wikipedia.org/wiki/Saule_pleureur",  
+            "categories": "tree",
+            "stock": 5
+        },
+        {
+            "id": 7,
+            "nom": "Magnolia",
+            "description": "Magnolia is appreciated for its large, fragrant flowers that appear in spring. It is often planted as an ornamental tree in gardens, where it catches the eye with its spectacular bloom.",
+            "prix": 79.99,
+            "wikipedia": "https://fr.wikipedia.org/wiki/Magnolia",  
+            "categories": "tree",
+            "stock": 5
+        },
+        {
+            "id": 8,
+            "nom": "White Birch",
+            "description": "This beautiful tree with white, smooth bark is an excellent choice for bringing brightness to a garden. The white birch grows quickly and is resistant to cold conditions.",
+            "prix": 74.99,
+            "wikipedia": "https://fr.wikipedia.org/wiki/Bouleau_%C3%A0_papier",  
+            "categories": "tree",
+            "stock": 5
+        },
+        {
+            "id": 9,
+            "nom": "Snow Queen",
+            "description": "This variety of white rose, also known as 'Snow Queen', is renowned for its abundant and continuous blooming. Its fragrant and elegant flowers brighten gardens from spring to autumn. Perfect for creating flowering masses or fragrant hedges.",
+            "prix": 24.99,
+            "wikipedia": "https://fr.wikipedia.org/wiki/Edelweiss",  
+            "categories": "flower",
+            "stock": 5
+        },
+        {
+            "id": 10,
+            "nom": "Lavender",
+            "description": "Lavender 'Grosso' is an aromatic plant with an enchanting fragrance, appreciated for its spikes of purple flowers. Ideal for dry and sunny gardens, it attracts bees and butterflies, while being drought-resistant. Perfect for borders or pots.",
+            "prix": 14.99,
+            "wikipedia": "https://fr.wikipedia.org/wiki/Lavande",  
+            "categories": "flower",
+            "stock": 5
+        },
+        {
+            "id": 11,
+            "nom": "Shovel",
+            "description": "Robust and durable garden shovel, ideal for digging, planting, and turning soil. Ergonomic design for optimal comfort during use.",
+            "prix": 14.99,
+            "wikipedia": "https://fr.wikipedia.org/wiki/Pelle_(outil)",  
+            "categories": "equipment",
+            "stock": 20
+        },
+        {
+            "id": 12,
+            "nom": "Soil",
+            "description": "High-quality soil, perfect for enriching your garden's soil and improving the growth of your plants. Suitable for all types of plants and flowers.",
+            "prix": 9.99,
+            "wikipedia": "https://fr.wikipedia.org/wiki/Terreau",  
+            "categories": "equipment",
+            "stock": 30
+        }
+    ]
+}

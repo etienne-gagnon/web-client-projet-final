@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" href="style.css">
     <title>La pépinière</title> 
+    <script src="francais.js" defer></script>
     <script src="script.js" defer></script>
     <script src="script-Tamoor-API.js" defer></script>
 </head>
@@ -20,6 +21,8 @@
             <li><select name="Pays" id="country-option"></select></li>
             <li><select name="Monnaie" id="currency-option"></select></li>
             <li><a id="a-element-panier" class="menuElements">Panier</a><span id="qte-items-container" hidden></span></li>
+            <button onclick="changeLangue('Francais')">Francais</button>
+            <button onclick="changeLangue('Anglais')">Anglais</button>
         </ul>
     </nav>
     
@@ -29,7 +32,7 @@
             <li><a id="a-element-contact" class="menuElements">Contact</a></li>
         </ul>
     </footer>
-
+    
     <div id="detail-view-container" hidden></div>
     <div id="context-menu-container" hidden></div>
     <main id="main" class="accueil-view"></main>
