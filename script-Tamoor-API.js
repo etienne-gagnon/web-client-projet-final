@@ -20,8 +20,8 @@ function countryoption() {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             return response.json();
-            
         })
+        
         .then(data => {
             //console.log('Countries API Response:', data);
             const countrySelect = document.getElementById('country-option');

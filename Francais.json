@@ -2,21 +2,87 @@
 {
     "navigation":
     {
-        "acceuil": "Acceuil",
-        "arbre": "Arbre",
+        "accueil": "Accueil",
+        "arbre": "Arbres",
         "fleurs": "Fleurs",
         "materiel": "Matériel",
         "searchBar": "Rechercher",
         "panier": "Panier",
+        "contact": "Contact",
+        "garantie": "Garantie",
         "btnFr": "Francais",
         "btnEn": "Anglais"
     },
-"accueilView":[
+    
+    "accueilView":
     {
-        "titre": "Bienvenue à La Pépinière !",
-        "text": "Découvrez un espace où la nature prend vie et s'épanouit. Que vous soyez un amateur de jardinage ou un professionnel du paysage, notre pépinière vous offre une vaste sélection de plantes, d'arbres et d'arbustes de qualité supérieure. Laissez-vous inspirer par notre passion pour la verdure et transformez votre jardin en un véritable havre de paix."
-    }
-    ],
+        "titre": "Accueil",
+        "texte": "Découvrez un espace où la nature prend vie et s'épanouit. Que vous soyez un amateur de jardinage ou un professionnel du paysage, notre pépinière vous offre une vaste sélection de plantes, d'arbres et d'arbustes de qualité supérieure. Laissez-vous inspirer par notre passion pour la verdure et transformez votre jardin en un véritable havre de paix."
+    },
+
+    "arbresView":
+    {
+        "titre": "Arbres",
+        "texte": "Découvrez notre gamme complète d'arbres !"
+    },
+
+    "fleursView":
+    {
+        "titre": "Fleurs",
+        "texte": "Découvrez notre gamme complète de fleurs !"
+    },
+
+    "materielView":
+    {
+        "titre": "Matériel",
+        "texte": "Découvrez notre gamme complète d'outils !"
+    },
+
+    "panierView":
+    {
+        "titre": "Panier",
+        "panierVideTexte": "Votre panier est vide !",
+        "titreColonneQuantite": "Quantité",
+        "titreColonneProduits": "Produits",
+        "titreColonnePrixUnit": "Prix unit.",
+        "titreColonneTotal": "Total",
+        "titreLigneSousTotal": "Sous-total",
+        "titreLigneTPS": "TPS",
+        "titreLigneTVQ": "TVQ",
+        "titreLigneTotal": "Total",
+        "btnSubmit": "Passer la commande"
+    },
+
+    "contactView":
+    {
+        "titre": "Contact",
+        "texte": "<p>Nous sommes toujours heureux de répondre à vos questions et de vous aider à trouver les plantes parfaites pour votre jardin. <br><br> N'hésitez pas à nous contacter par les moyens suivants :</p><ul><li><strong>Adresse :</strong> 123 Rue des Jardins, Ville des Fleurs, QC, G1A 2B3</li><li><strong>Téléphone :</strong> (123) 456-7890</li><li><strong>Courriel :</strong> <a href='mailto:contact@lapeppiniere.com'>contact@lapeppiniere.com</a></li><li><strong>Heures d'ouverture :</strong> Lundi à Vendredi : 9h00 - 18h00, Samedi : 9h00 - 17h00, Dimanche : Fermé</li></ul>"
+    },
+
+    "garantieView":
+    {
+        "titre": "Garantie",
+        "texte": "<p>Chez La Pépinière, votre satisfaction est notre priorité. Nous nous engageons à vous fournir des plantes de la plus haute qualité, soigneusement sélectionnées et emballées pour assurer qu'elles arrivent en parfait état chez vous.</p><ul><li><strong>Plantes en bonne santé :</strong> Chaque plante expédiée est inspectée par nos experts pour s'assurer qu'elle est en parfaite santé, sans parasites ni maladies.</li><li><strong>Satisfaction à 100% :</strong> Si, pour une raison quelconque, vous n'êtes pas entièrement satisfait de votre achat, nous nous engageons à remplacer la plante concernée ou à vous offrir un crédit en magasin valable pour un futur achat.</li><li><strong>Livraison sécurisée :</strong> Nous utilisons des méthodes d'emballage sécurisées pour garantir que vos plantes arrivent intactes, prêtes à embellir votre espace. Si votre plante est endommagée lors du transport, nous vous la remplacerons sans frais supplémentaires.</li></ul><p><strong>Conditions de la garantie :</strong></p><ul><li>La réclamation doit être faite dans les 7 jours suivant la réception de la commande.</li><li>Les réclamations doivent être accompagnées de photos claires de la plante concernée et de l'emballage.</li></ul><p>Chez <strong>La Pépinière</strong>, nous sommes fiers de la qualité de nos plantes et de notre service client. Nous nous engageons à rendre votre expérience d'achat en ligne simple, agréable et sans souci.</p>"
+    },
+
+    "searchView":
+    {
+        "titre": "Voici les résultats...",
+        "aucunResultatMessage": "Aucun produits n'a été trouvé."
+    },
+
+    "adminView":
+    {
+        "titre": "Admin",
+        "labelUtilisateur": "Nom d'utilisateur",
+        "labelPassword": "Mot de passe",
+        "btnSubmit": "Se connecter",
+        "texte": "Vous pouvez maintenant modifier le contenu et le sauvegarder.",
+        "btnSauvegarder": "Sauvegarder",
+        "btnDeconnection": "Se deconnecter"
+    },
+
+
 
     "produits": [
     {

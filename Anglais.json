@@ -1,15 +1,82 @@
 {
     "navigation":
     {
-        "acceuil": "Home",
-        "arbre": "Tree",
-        "fleurs": "Flower",
+        "accueil": "Home",
+        "arbre": "Trees",
+        "fleurs": "Flowers",
         "materiel": "Equipment",
         "searchBar": "Search",
         "panier": "Cart",
+        "contact": "Contact",
+        "garantie": "Warranty",
         "btnFr": "French",
         "btnEn": "English"
     },
+
+    "accueilView": {
+        "titre": "Home",
+        "texte": "Discover a space where nature comes to life and flourishes. Whether you are a gardening enthusiast or a landscaping professional, our nursery offers a wide selection of high-quality plants, trees, and shrubs. Let yourself be inspired by our passion for greenery and transform your garden into a true haven of peace."
+    },
+    
+    "arbresView": {
+            "titre": "Trees",
+            "texte": "Explore our full range of trees!"
+    },
+    
+    "fleursView": {
+        "titre": "Flowers",
+        "texte": "Explore our full range of flowers!"
+    },
+    
+    "materielView": {
+        "titre": "Tools",
+        "texte": "Explore our full range of tools!"
+    },
+
+    "panierView":
+    {
+        "titre": "Cart",
+        "panierVideTexte": "Your cart is empty !",
+        "titreColonneQuantite": "Quantity",
+        "titreColonneProduits": "Products",
+        "titreColonnePrixUnit": "Unit price",
+        "titreColonneTotal": "Total",
+        "titreLigneSousTotal": "subtotal",
+        "titreLigneTPS": "TPS",
+        "titreLigneTVQ": "TVQ",
+        "titreLigneTotal": "Total",
+        "btnSubmit": "Place order"
+    },
+    
+    "contactView":
+    {
+        "titre": "Contact",
+        "texte": "<p>We are always happy to answer your questions and help you find the perfect plants for your garden. <br><br> Feel free to reach out to us through the following means:</p><ul><li><strong>Address:</strong> 123 Rue des Jardins, Ville des Fleurs, QC, G1A 2B3</li><li><strong>Phone:</strong> (123) 456-7890</li><li><strong>Email:</strong> <a href='mailto:contact@lapeppiniere.com'>contact@lapeppiniere.com</a></li><li><strong>Opening Hours:</strong> Monday to Friday: 9:00 AM - 6:00 PM, Saturday: 9:00 AM - 5:00 PM, Sunday: Closed</li></ul>"
+    },
+
+    "garantieView":
+    {
+        "titre": "Waranty",
+        "texte": "<p>At La Pépinière, your satisfaction is our priority. We are committed to providing you with the highest quality plants, carefully selected and packaged to ensure they arrive in perfect condition at your home.</p><ul><li><strong>Healthy Plants:</strong> Every plant shipped is inspected by our experts to ensure it is in perfect health, free from pests and diseases.</li><li><strong>100% Satisfaction:</strong> If for any reason you are not completely satisfied with your purchase, we will replace the affected plant or offer you a store credit for future purchases.</li><li><strong>Secure Delivery:</strong> We use secure packaging methods to ensure that your plants arrive intact, ready to beautify your space. If your plant is damaged during transport, we will replace it at no extra cost.</li></ul><p><strong>Warranty Conditions:</strong></p><ul><li>The claim must be made within 7 days of receiving the order.</li><li>Claims must be accompanied by clear photos of the affected plant and its packaging.</li></ul><p>At <strong>La Pépinière</strong>, we are proud of the quality of our plants and our customer service. We are committed to making your online shopping experience simple, pleasant, and worry-free.</p>"
+    },
+
+    "searchView":
+    {
+        "titre": "Here's the results...",
+        "aucunResultatMessage": "No products were found."
+    },
+
+    "adminView":
+    {
+        "titre": "Admin",
+        "labelUtilisateur": "Username",
+        "labelPassword": "Password",
+        "btnSubmit": "Login",
+        "texte": "You can now edit the content and save it.",
+        "btnSauvegarder": "Save",
+        "btnDeconnection": "logout"
+    },
+
     "produits": [
         {
             "id": 1,

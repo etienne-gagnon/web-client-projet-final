@@ -86,12 +86,23 @@ function changeView(view){
         document.getElementById("a-element-contact").classList.remove("active");
         document.getElementById("a-element-garantie").classList.remove("active");
         
+        fetch(langue + '.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur lors de la récupération des données');
+            }
+            return response.json();
+        })
+        .then(data => {
+            let titre = data.accueilView.titre;
+            let texte = data.accueilView.texte;
 
-        if(langue == "Francais"){
-            main.innerHTML = "<div id='mot-bienvenue'><h1>Bienvenue à La Pépinière !</h1><p>Découvrez un espace où la nature prend vie et s'épanouit. Que vous soyez un amateur de jardinage ou un professionnel du paysage, notre pépinière vous offre une vaste sélection de plantes, d'arbres et d'arbustes de qualité supérieure. Laissez-vous inspirer par notre passion pour la verdure et transformez votre jardin en un véritable havre de paix.</p></div><img id='background-img' src='images/background.jpg'>";
-        }else if(langue == "Anglais"){
-            main.innerHTML = "<div id='mot-bienvenue'><h1>Welcome to La Pépinière!</h1><p>Discover a space where nature comes to life and flourishes. Whether you are a gardening enthusiast or a landscaping professional, our nursery offers a wide selection of high-quality plants, trees, and shrubs. Let yourself be inspired by our passion for greenery and transform your garden into a true haven of peace.</p></div><img id='background-img' src='images/background.jpg'>";
-        }
+            main.innerHTML = "<div id='mot-bienvenue'><h1>"+titre+"</h1><p>"+texte+"</p></div><img id='background-img' src='images/background.jpg'>";
+
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+        });
     
         
 
@@ -104,28 +115,43 @@ function changeView(view){
         document.getElementById("a-element-contact").classList.remove("active");
         document.getElementById("a-element-garantie").classList.remove("active");
 
-        if(langue == "Francais"){
-            main.innerHTML = "<h1>Arbres</h1><p>Découvrez notre gamme complète d'arbres !</p><div id='product-container'></div>";
-        }else if(langue == "Anglais"){
-            main.innerHTML = "<div id='mot-bienvenue'><h1>Welcome to La Pépinière!</h1><p>Discover a space where nature comes to life and flourishes. Whether you are a gardening enthusiast or a landscaping professional, our nursery offers a wide selection of high-quality plants, trees, and shrubs. Let yourself be inspired by our passion for greenery and transform your garden into a true haven of peace.</p></div><img id='background-img' src='images/background.jpg'>";
-        }
-        
-        let productContainer = document.getElementById("product-container");
-
-        for(let i = 0;i < produits.length;i++){
-            if(produits[i].categories == "arbre" || produits[i].categories == "tree" ){
-                
-                    let imgSrc = "images/"+produits[i].id+"-1.png";
-
-                    let productCard = document.createElement("div");
-
-                        productCard.className = "product-card";
-                        productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+produits[i].prix+"$</p>";
-                        productCard.setAttribute("onclick", "showDetails('"+produits[i].id+"')");
-                        productCard.setAttribute("oncontextmenu", "showContextMenu('"+produits[i].id+"')");
-                        productContainer.appendChild(productCard);             
+        fetch(langue + '.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur lors de la récupération des données');
             }
-        }     
+            return response.json();
+        })
+        .then(data => {
+            let titre = data.arbresView.titre;
+            let texte = data.arbresView.texte;
+
+            main.innerHTML = "<h1>"+titre+"</h1><p>"+texte+"</p><div id='product-container'></div>";
+
+            let productContainer = document.getElementById("product-container");
+
+            for(let i = 0;i < produits.length;i++){
+                if(produits[i].categories == "arbre" || produits[i].categories == "tree" ){
+                    
+                        let imgSrc = "images/"+produits[i].id+"-1.png";
+    
+                        let productCard = document.createElement("div");
+    
+                            productCard.className = "product-card";
+                            productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+produits[i].prix+"$</p>";
+                            productCard.setAttribute("onclick", "showDetails('"+produits[i].id+"')");
+                            productCard.setAttribute("oncontextmenu", "showContextMenu('"+produits[i].id+"')");
+                            productContainer.appendChild(productCard);             
+                }
+            }     
+
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+        });
+
+        
+       
     
     } else if (view == "fleurs-view"){
         document.getElementById("a-element-accueil").classList.remove("active");
@@ -136,24 +162,41 @@ function changeView(view){
         document.getElementById("a-element-contact").classList.remove("active");
         document.getElementById("a-element-garantie").classList.remove("active");
 
-        main.innerHTML = "<h1>Fleurs</h1><p>Découvrez notre gamme complète de fleurs !</p><div id='product-container'></div>";
-        
-        let productContainer = document.getElementById("product-container");
-
-        for(let i = 0;i < produits.length;i++){
-            if(produits[i].categories == "fleur" || produits[i].categories == "flower" ){
-                
-                    let imgSrc = "images/"+produits[i].id+"-1.png";
-
-                    let productCard = document.createElement("div");
-                        productCard.className = "product-card";
-                        productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+produits[i].prix+"$</p>";
-                        productCard.setAttribute("onclick", "showDetails('"+produits[i].id+"')");
-                        productCard.setAttribute("oncontextmenu", "showContextMenu('"+produits[i].id+"')");
-                        productContainer.appendChild(productCard);
-
+               
+        fetch(langue + '.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur lors de la récupération des données');
             }
-        }
+            return response.json();
+        })
+        .then(data => {
+            let titre = data.fleursView.titre;
+            let texte = data.fleursView.texte;
+
+            main.innerHTML = "<h1>"+titre+"</h1><p>"+texte+"</p><div id='product-container'></div>";
+
+            let productContainer = document.getElementById("product-container");
+
+            for(let i = 0;i < produits.length;i++){
+                if(produits[i].categories == "fleur" || produits[i].categories == "flower" ){
+                    
+                        let imgSrc = "images/"+produits[i].id+"-1.png";
+    
+                        let productCard = document.createElement("div");
+    
+                            productCard.className = "product-card";
+                            productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+produits[i].prix+"$</p>";
+                            productCard.setAttribute("onclick", "showDetails('"+produits[i].id+"')");
+                            productCard.setAttribute("oncontextmenu", "showContextMenu('"+produits[i].id+"')");
+                            productContainer.appendChild(productCard);             
+                }
+            }     
+            
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+        });
 
     } else if (view == "materiel-view"){
         document.getElementById("a-element-accueil").classList.remove("active");
@@ -164,24 +207,40 @@ function changeView(view){
         document.getElementById("a-element-contact").classList.remove("active");
         document.getElementById("a-element-garantie").classList.remove("active");
 
-        main.innerHTML = "<h1>Matériel</h1><p>Découvrez notre gamme complète d'outils !</p><div id='product-container'></div>";
-        
-        let productContainer = document.getElementById("product-container");
-
-        for(let i = 0;i < produits.length;i++){
-            if(produits[i].categories == "materiel" || produits[i].categories == "equipment" ){
-                
-                    let imgSrc = "images/"+produits[i].id+"-1.png";
-
-                    let productCard = document.createElement("div");
-                        productCard.className = "product-card";
-                        productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+produits[i].prix+"$</p>";
-                        productCard.setAttribute("onclick", "showDetails('"+produits[i].id+"')");
-                        productCard.setAttribute("oncontextmenu", "showContextMenu('"+produits[i].id+"')");
-                        productContainer.appendChild(productCard);
-
+        fetch(langue + '.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur lors de la récupération des données');
             }
-        }
+            return response.json();
+        })
+        .then(data => {
+            let titre = data.materielView.titre;
+            let texte = data.materielView.texte;
+
+            main.innerHTML = "<h1>"+titre+"</h1><p>"+texte+"</p><div id='product-container'></div>";
+
+            let productContainer = document.getElementById("product-container");
+
+            for(let i = 0;i < produits.length;i++){
+                if(produits[i].categories == "materiel" || produits[i].categories == "equipment" ){
+                    
+                        let imgSrc = "images/"+produits[i].id+"-1.png";
+    
+                        let productCard = document.createElement("div");
+    
+                            productCard.className = "product-card";
+                            productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+produits[i].prix+"$</p>";
+                            productCard.setAttribute("onclick", "showDetails('"+produits[i].id+"')");
+                            productCard.setAttribute("oncontextmenu", "showContextMenu('"+produits[i].id+"')");
+                            productContainer.appendChild(productCard);             
+                }
+            }     
+            
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+        });
 
     } else if (view == "panier-view"){
         document.getElementById("a-element-accueil").classList.remove("active");
