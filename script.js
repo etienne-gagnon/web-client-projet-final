@@ -9,8 +9,6 @@ let nav = document.getElementById("nav");
 let main = document.getElementById("main");
 let langue = "Francais";
 
-console.log(langue);
-
 function fetchProduits() {
     return fetch(langue + '.json')
         .then(response => {
@@ -40,9 +38,16 @@ function fetchProduits() {
 
 fetchProduits();
 
-function changeLangue(value) {
-    langue = value;
+
+let selectedLangue = document.getElementById("selectedLangue");
+
+selectedLangue.addEventListener("change", function changeLangue() {
+    let selectedValue = selectedLangue.value;
+    
+    langue = selectedValue;
     console.log(langue);
+
+    closeDetail();
 
     changeView("accueil-view");
     
@@ -50,12 +55,11 @@ function changeLangue(value) {
         let currentView = document.getElementById("main").className;
         changeView(currentView);
     });
-}
+});
 
 
 // Afficher le bon contenu en fonction du tag <a> sélectionné
 document.body.addEventListener("onload", changeView("accueil-view"));
-
 
 
 for(let i = 0;i<menuElements.length;i++){
@@ -77,15 +81,8 @@ for(let i = 0;i<menuElements.length;i++){
 
 function changeView(view){
 
-    if(view == "accueil-view"){
-        document.getElementById("a-element-accueil").classList.add("active");
-        document.getElementById("a-element-arbres").classList.remove("active");
-        document.getElementById("a-element-fleurs").classList.remove("active");
-        document.getElementById("a-element-materiel").classList.remove("active");
-        document.getElementById("a-element-panier").classList.remove("active");
-        document.getElementById("a-element-contact").classList.remove("active");
-        document.getElementById("a-element-garantie").classList.remove("active");
-        
+    if(view == "accueil-view" || view == "home-view" ) {
+
         fetch(langue + '.json')
         .then(response => {
             if (!response.ok) {
@@ -97,6 +94,29 @@ function changeView(view){
             let titre = data.accueilView.titre;
             let texte = data.accueilView.texte;
 
+            document.getElementById("a-element-accueil").classList.add("active");
+            document.getElementById("a-element-accueil").innerText = data.navigation.accueil;
+
+            document.getElementById("a-element-arbres").classList.remove("active");
+            document.getElementById("a-element-arbres").innerText = data.navigation.arbre;
+
+            document.getElementById("a-element-fleurs").classList.remove("active");
+            document.getElementById("a-element-fleurs").innerText = data.navigation.fleurs;
+
+            document.getElementById("a-element-materiel").classList.remove("active");
+            document.getElementById("a-element-materiel").innerText = data.navigation.materiel;
+
+            document.getElementById("a-element-panier").classList.remove("active");
+            document.getElementById("a-element-panier").innerText = data.navigation.panier;
+
+            document.getElementById("a-element-contact").classList.remove("active");
+            document.getElementById("a-element-contact").innerText = data.navigation.contact;
+
+            document.getElementById("a-element-garantie").classList.remove("active");
+            document.getElementById("a-element-garantie").innerText = data.navigation.garantie;
+
+            document.getElementById("a-element-admin").classList.remove("active");
+
             main.innerHTML = "<div id='mot-bienvenue'><h1>"+titre+"</h1><p>"+texte+"</p></div><img id='background-img' src='images/background.jpg'>";
 
         })
@@ -106,15 +126,9 @@ function changeView(view){
     
         
 
-    } else if (view == "arbres-view"){
-        document.getElementById("a-element-accueil").classList.remove("active");
-        document.getElementById("a-element-arbres").classList.add("active");
-        document.getElementById("a-element-fleurs").classList.remove("active");
-        document.getElementById("a-element-materiel").classList.remove("active");
-        document.getElementById("a-element-panier").classList.remove("active");
-        document.getElementById("a-element-contact").classList.remove("active");
-        document.getElementById("a-element-garantie").classList.remove("active");
+    } else if (view == "arbres-view" || view == "trees-view" ){
 
+        console.log("test")
         fetch(langue + '.json')
         .then(response => {
             if (!response.ok) {
@@ -125,6 +139,29 @@ function changeView(view){
         .then(data => {
             let titre = data.arbresView.titre;
             let texte = data.arbresView.texte;
+
+            document.getElementById("a-element-accueil").classList.remove("active");
+            document.getElementById("a-element-accueil").innerText = data.navigation.accueil;
+
+            document.getElementById("a-element-arbres").classList.add("active");
+            document.getElementById("a-element-arbres").innerText = data.navigation.arbre;
+
+            document.getElementById("a-element-fleurs").classList.remove("active");
+            document.getElementById("a-element-fleurs").innerText = data.navigation.fleurs;
+
+            document.getElementById("a-element-materiel").classList.remove("active");
+            document.getElementById("a-element-materiel").innerText = data.navigation.materiel;
+
+            document.getElementById("a-element-panier").classList.remove("active");
+            document.getElementById("a-element-panier").innerText = data.navigation.panier;
+
+            document.getElementById("a-element-contact").classList.remove("active");
+            document.getElementById("a-element-contact").innerText = data.navigation.contact;
+
+            document.getElementById("a-element-garantie").classList.remove("active");
+            document.getElementById("a-element-garantie").innerText = data.navigation.garantie;
+
+            document.getElementById("a-element-admin").classList.remove("active");
 
             main.innerHTML = "<h1>"+titre+"</h1><p>"+texte+"</p><div id='product-container'></div>";
 
@@ -153,15 +190,7 @@ function changeView(view){
         
        
     
-    } else if (view == "fleurs-view"){
-        document.getElementById("a-element-accueil").classList.remove("active");
-        document.getElementById("a-element-arbres").classList.remove("active");
-        document.getElementById("a-element-fleurs").classList.add("active");
-        document.getElementById("a-element-materiel").classList.remove("active");
-        document.getElementById("a-element-panier").classList.remove("active");
-        document.getElementById("a-element-contact").classList.remove("active");
-        document.getElementById("a-element-garantie").classList.remove("active");
-
+    } else if (view == "fleurs-view" || view == "flowers-view" ){
                
         fetch(langue + '.json')
         .then(response => {
@@ -173,6 +202,29 @@ function changeView(view){
         .then(data => {
             let titre = data.fleursView.titre;
             let texte = data.fleursView.texte;
+
+            document.getElementById("a-element-accueil").classList.remove("active");
+            document.getElementById("a-element-accueil").innerText = data.navigation.accueil;
+
+            document.getElementById("a-element-arbres").classList.remove("active");
+            document.getElementById("a-element-arbres").innerText = data.navigation.arbre;
+
+            document.getElementById("a-element-fleurs").classList.add("active");
+            document.getElementById("a-element-fleurs").innerText = data.navigation.fleurs;
+
+            document.getElementById("a-element-materiel").classList.remove("active");
+            document.getElementById("a-element-materiel").innerText = data.navigation.materiel;
+
+            document.getElementById("a-element-panier").classList.remove("active");
+            document.getElementById("a-element-panier").innerText = data.navigation.panier;
+
+            document.getElementById("a-element-contact").classList.remove("active");
+            document.getElementById("a-element-contact").innerText = data.navigation.contact;
+
+            document.getElementById("a-element-garantie").classList.remove("active");
+            document.getElementById("a-element-garantie").innerText = data.navigation.garantie;
+
+            document.getElementById("a-element-admin").classList.remove("active");
 
             main.innerHTML = "<h1>"+titre+"</h1><p>"+texte+"</p><div id='product-container'></div>";
 
@@ -198,15 +250,7 @@ function changeView(view){
             console.error('Erreur:', error);
         });
 
-    } else if (view == "materiel-view"){
-        document.getElementById("a-element-accueil").classList.remove("active");
-        document.getElementById("a-element-arbres").classList.remove("active");
-        document.getElementById("a-element-fleurs").classList.remove("active");
-        document.getElementById("a-element-materiel").classList.add("active");
-        document.getElementById("a-element-panier").classList.remove("active");
-        document.getElementById("a-element-contact").classList.remove("active");
-        document.getElementById("a-element-garantie").classList.remove("active");
-
+    } else if (view == "materiel-view" || view == "equipment-view" ){
         fetch(langue + '.json')
         .then(response => {
             if (!response.ok) {
@@ -217,6 +261,29 @@ function changeView(view){
         .then(data => {
             let titre = data.materielView.titre;
             let texte = data.materielView.texte;
+
+            document.getElementById("a-element-accueil").classList.remove("active");
+            document.getElementById("a-element-accueil").innerText = data.navigation.accueil;
+
+            document.getElementById("a-element-arbres").classList.remove("active");
+            document.getElementById("a-element-arbres").innerText = data.navigation.arbre;
+
+            document.getElementById("a-element-fleurs").classList.remove("active");
+            document.getElementById("a-element-fleurs").innerText = data.navigation.fleurs;
+
+            document.getElementById("a-element-materiel").classList.add("active");
+            document.getElementById("a-element-materiel").innerText = data.navigation.materiel;
+
+            document.getElementById("a-element-panier").classList.remove("active");
+            document.getElementById("a-element-panier").innerText = data.navigation.panier;
+
+            document.getElementById("a-element-contact").classList.remove("active");
+            document.getElementById("a-element-contact").innerText = data.navigation.contact;
+
+            document.getElementById("a-element-garantie").classList.remove("active");
+            document.getElementById("a-element-garantie").innerText = data.navigation.garantie;
+
+            document.getElementById("a-element-admin").classList.remove("active");
 
             main.innerHTML = "<h1>"+titre+"</h1><p>"+texte+"</p><div id='product-container'></div>";
 
@@ -242,19 +309,55 @@ function changeView(view){
             console.error('Erreur:', error);
         });
 
-    } else if (view == "panier-view"){
-        document.getElementById("a-element-accueil").classList.remove("active");
-        document.getElementById("a-element-arbres").classList.remove("active");
-        document.getElementById("a-element-fleurs").classList.remove("active");
-        document.getElementById("a-element-materiel").classList.remove("active");
-        document.getElementById("a-element-panier").classList.add("active");
-        document.getElementById("a-element-contact").classList.remove("active");
-        document.getElementById("a-element-garantie").classList.remove("active");
+    } else if (view == "panier-view" || view == "cart-view" ){
+
+        fetch(langue + '.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur lors de la récupération des données');
+            }
+            return response.json();
+        })
+        .then(data => {
+            let titre = data.panierView.titre;
+            let panierVideTexte = data.panierView.panierVideTexte;
+            let titreColonneQuantite = data.panierView.titreColonneQuantite;
+            let titreColonneProduits = data.panierView.titreColonneProduits;
+            let titreColonnePrixUnit = data.panierView.titreColonnePrixUnit;
+            let titreColonneTotal = data.panierView.titreColonneTotal;
+            let titreLigneSousTotal = data.panierView.titreLigneSousTotal;
+            let titreLigneTPS = data.panierView.titreLigneTPS;
+            let titreLigneTVQ = data.panierView.titreLigneTVQ;
+            let titreLigneTotal = data.panierView.titreLigneTotal;
+            let btnSubmit = data.panierView.btnSubmit;
+            
+            document.getElementById("a-element-accueil").classList.remove("active");
+            document.getElementById("a-element-accueil").innerText = data.navigation.accueil;
+
+            document.getElementById("a-element-arbres").classList.remove("active");
+            document.getElementById("a-element-arbres").innerText = data.navigation.arbre;
+
+            document.getElementById("a-element-fleurs").classList.remove("active");
+            document.getElementById("a-element-fleurs").innerText = data.navigation.fleurs;
+
+            document.getElementById("a-element-materiel").classList.remove("active");
+            document.getElementById("a-element-materiel").innerText = data.navigation.materiel;
+
+            document.getElementById("a-element-panier").classList.add("active");
+            document.getElementById("a-element-panier").innerText = data.navigation.panier;
+
+            document.getElementById("a-element-contact").classList.remove("active");
+            document.getElementById("a-element-contact").innerText = data.navigation.contact;
+
+            document.getElementById("a-element-garantie").classList.remove("active");
+            document.getElementById("a-element-garantie").innerText = data.navigation.garantie;
+
+           document.getElementById("a-element-admin").classList.remove("active");
 
         main.innerHTML = "<h1>Panier</h1>";
 
         if(panier.length == 0){
-            main.innerHTML = "<div><h1>Panier</h1><div class='main-content'><p>Votre panier est vide...</p></div></div>";
+            main.innerHTML = "<div><h1>"+titre+"</h1><div class='main-content'><p>"+panierVideTexte+"</p></div></div>";
         }else{
             let container = document.createElement("div");
                 container.className = "main-content";
@@ -262,7 +365,7 @@ function changeView(view){
             let table = document.createElement("table");
         
             let headTr = document.createElement("tr");
-                headTr.innerHTML = "<th>Quantité</th><th>Produits</th><th>Prix unit.</th><th>Total</th>";
+                headTr.innerHTML = "<th>"+titreColonneQuantite+"</th><th>"+titreColonneProduits+"</th><th>"+titreColonnePrixUnit+"</th><th>"+titreColonneTotal+"</th>";
 
 
             main.append(container);
@@ -292,45 +395,255 @@ function changeView(view){
                 let taxes = parseFloat(tps) + parseFloat(tvq);
                 let total = parseFloat(taxes) + parseFloat(sousTotalArrondie);
 
-                totalContainer.innerHTML = "<tr><td>Sous-total :</td><td>"+sousTotalArrondie+" $</td></tr><tr><td>TPS :</td><td>"+tps+" $</td></tr><tr><td>TVQ :</td><td>"+tvq+" $</td></tr><tr><td>Total :</td><td>"+total.toFixed(2)+" $</td></tr>";
+                totalContainer.innerHTML = "<tr><td>"+titreLigneSousTotal+" :</td><td>"+sousTotalArrondie+" $</td></tr><tr><td>"+titreLigneTPS+" :</td><td>"+tps+" $</td></tr><tr><td>"+titreLigneTVQ+" :</td><td>"+tvq+" $</td></tr><tr><td>"+titreLigneTotal+" :</td><td>"+total.toFixed(2)+" $</td></tr>";
 
                 container.append(totalContainer);
 
                 let button = document.createElement("button");
-                    button.innerHTML = "Passer la commande";
+                    button.innerHTML = btnSubmit;
                     button.id = "submit-btn";
                     button.setAttribute("onclick", "submit()");
 
                 main.append(button);
                 main.style.height = "100%";
         }
+            
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+        });
+
+
+
     }else if(view == "contact-view"){
-        document.getElementById("a-element-accueil").classList.remove("active");
-        document.getElementById("a-element-arbres").classList.remove("active");
-        document.getElementById("a-element-fleurs").classList.remove("active");
-        document.getElementById("a-element-materiel").classList.remove("active");
-        document.getElementById("a-element-panier").classList.remove("active");
-        document.getElementById("a-element-contact").classList.add("active");
-        document.getElementById("a-element-garantie").classList.remove("active");
-        main.innerHTML = "<div><h1>Contact</h1><div id='contact-content' class='main-content'><p>Nous sommes toujours heureux de répondre à vos questions et de vous aider à trouver les plantes parfaites pour votre jardin. <br><br> N'hésitez pas à nous contacter par les moyens suivants :</p><ul><li><strong>Adresse :</strong> 123 Rue des Jardins, Ville des Fleurs, QC, G1A 2B3</li><li><strong>Téléphone :</strong> (123) 456-7890</li><li><strong>Courriel :</strong> <a href='mailto:contact@lapeppiniere.com'>contact@lapeppiniere.com</a></li><li><strong>Heures d'ouverture :</strong> Lundi à Vendredi : 9h00 - 18h00, Samedi : 9h00 - 17h00, Dimanche : Fermé</li></ul></div></div>";
-    }else if(view == "garantie-view"){
-        document.getElementById("a-element-accueil").classList.remove("active");
-        document.getElementById("a-element-arbres").classList.remove("active");
-        document.getElementById("a-element-fleurs").classList.remove("active");
-        document.getElementById("a-element-materiel").classList.remove("active");
-        document.getElementById("a-element-panier").classList.remove("active");
-        document.getElementById("a-element-contact").classList.remove("active");
-        document.getElementById("a-element-garantie").classList.add("active");
-        main.innerHTML = "<div><h1>Garantie</h1><div id='garantie-content' class='main-content'><p>Chez La Pépinière, votre satisfaction est notre priorité. Nous nous engageons à vous fournir des plantes de la plus haute qualité, soigneusement sélectionnées et emballées pour assurer qu'elles arrivent en parfait état chez vous.</p><ul><li><strong>Plantes en bonne santé :</strong> Chaque plante expédiée est inspectée par nos experts pour s'assurer qu'elle est en parfaite santé, sans parasites ni maladies.</li><li><strong>Satisfaction à 100% :</strong> Si, pour une raison quelconque, vous n'êtes pas entièrement satisfait de votre achat, nous nous engageons à remplacer la plante concernée ou à vous offrir un crédit en magasin valable pour un futur achat.</li><li><strong>Livraison sécurisée :</strong> Nous utilisons des méthodes d'emballage sécurisées pour garantir que vos plantes arrivent intactes, prêtes à embellir votre espace. Si votre plante est endommagée lors du transport, nous vous la remplacerons sans frais supplémentaires.</li></ul><p><strong>Conditions de la garantie :</strong></p><ul><li>La réclamation doit être faite dans les 7 jours suivant la réception de la commande.</li><li>Les réclamations doivent être accompagnées de photos claires de la plante concernée et de l'emballage.</li></ul><p>Chez <strong>La Pépinière</strong>, nous sommes fiers de la qualité de nos plantes et de notre service client. Nous nous engageons à rendre votre expérience d'achat en ligne simple, agréable et sans souci.</p></div></div>";
+        fetch(langue + '.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur lors de la récupération des données');
+            }
+            return response.json();
+        })
+        .then(data => {
+            let titre = data.contactView.titre;
+            let texte = data.contactView.texte;
+
+            document.getElementById("a-element-accueil").classList.remove("active");
+            document.getElementById("a-element-accueil").innerText = data.navigation.accueil;
+
+            document.getElementById("a-element-arbres").classList.remove("active");
+            document.getElementById("a-element-arbres").innerText = data.navigation.arbre;
+
+            document.getElementById("a-element-fleurs").classList.remove("active");
+            document.getElementById("a-element-fleurs").innerText = data.navigation.fleurs;
+
+            document.getElementById("a-element-materiel").classList.remove("active");
+            document.getElementById("a-element-materiel").innerText = data.navigation.materiel;
+
+            document.getElementById("a-element-panier").classList.remove("active");
+            document.getElementById("a-element-panier").innerText = data.navigation.panier;
+
+            document.getElementById("a-element-contact").classList.add("active");
+            document.getElementById("a-element-contact").innerText = data.navigation.contact;
+
+            document.getElementById("a-element-garantie").classList.remove("active");
+            document.getElementById("a-element-garantie").innerText = data.navigation.garantie;
+
+            document.getElementById("a-element-admin").classList.remove("active");
+
+            main.innerHTML = "<div><h1>"+titre+"</h1><div id='contact-content' class='main-content'>"+texte+"</div></div>";
+            
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+        });
+
+
+    }else if(view == "garantie-view" || view == "warranty-view"){   
+        fetch(langue + '.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur lors de la récupération des données');
+            }
+            return response.json();
+        })
+        .then(data => {
+            let titre = data.garantieView.titre;
+            let texte = data.garantieView.texte;
+
+            document.getElementById("a-element-accueil").classList.remove("active");
+            document.getElementById("a-element-accueil").innerText = data.navigation.accueil;
+
+            document.getElementById("a-element-arbres").classList.remove("active");
+            document.getElementById("a-element-arbres").innerText = data.navigation.arbre;
+
+            document.getElementById("a-element-fleurs").classList.remove("active");
+            document.getElementById("a-element-fleurs").innerText = data.navigation.fleurs;
+
+            document.getElementById("a-element-materiel").classList.remove("active");
+            document.getElementById("a-element-materiel").innerText = data.navigation.materiel;
+
+            document.getElementById("a-element-panier").classList.remove("active");
+            document.getElementById("a-element-panier").innerText = data.navigation.panier;
+
+            document.getElementById("a-element-contact").classList.add("active");
+            document.getElementById("a-element-contact").innerText = data.navigation.contact;
+
+            document.getElementById("a-element-garantie").classList.remove("active");
+            document.getElementById("a-element-garantie").innerText = data.navigation.garantie;
+
+            document.getElementById("a-element-admin").classList.remove("active");
+
+            main.innerHTML = "<div><h1>"+titre+"</h1><div id='garantie-content' class='main-content'>"+texte+"</div></div>";
+            
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+        });
+
     }else if(view == "search-view"){
-        document.getElementById("a-element-accueil").classList.remove("active");
-        document.getElementById("a-element-arbres").classList.remove("active");
-        document.getElementById("a-element-fleurs").classList.remove("active");
-        document.getElementById("a-element-materiel").classList.remove("active");
-        document.getElementById("a-element-panier").classList.remove("active");
-        document.getElementById("a-element-contact").classList.remove("active");
-        document.getElementById("a-element-garantie").classList.remove("active");
-        main.innerHTML = "<div><h1>Voici les résultats...</h1><div id='product-container'></div></div>";
+
+        fetch(langue + '.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur lors de la récupération des données');
+            }
+            return response.json();
+        })
+        .then(data => {
+            let titre = data.searchView.titre;
+            let aucunResultatMessage = data.searchView.aucunResultatMessage;
+
+            document.getElementById("a-element-accueil").classList.remove("active");
+            document.getElementById("a-element-accueil").innerText = data.navigation.accueil;
+
+            document.getElementById("a-element-arbres").classList.remove("active");
+            document.getElementById("a-element-arbres").innerText = data.navigation.arbre;
+
+            document.getElementById("a-element-fleurs").classList.remove("active");
+            document.getElementById("a-element-fleurs").innerText = data.navigation.fleurs;
+
+            document.getElementById("a-element-materiel").classList.remove("active");
+            document.getElementById("a-element-materiel").innerText = data.navigation.materiel;
+
+            document.getElementById("a-element-panier").classList.remove("active");
+            document.getElementById("a-element-panier").innerText = data.navigation.panier;
+
+            document.getElementById("a-element-contact").classList.remove("active");
+            document.getElementById("a-element-contact").innerText = data.navigation.contact;
+
+            document.getElementById("a-element-garantie").classList.remove("active");
+            document.getElementById("a-element-garantie").innerText = data.navigation.garantie;
+
+            document.getElementById("a-element-admin").classList.remove("active");
+
+            main.innerHTML = "<div><h1>"+titre+"</h1><div id='product-container'></div></div>";
+           
+                    
+            let productContainer = document.getElementById("product-container");
+
+            let searchBarValue = document.getElementById("search-bar-input").value;
+            let searchBar = searchBarValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            
+            productContainer.innerHTML = ""; // Clear the previous results
+            
+            let resultatExiste = false;
+
+            for(let i = 0;i < produits.length;i++){
+            
+                let produitNom = produits[i].nom.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                
+                if(produitNom.startsWith(searchBar)){
+                    let imgSrc = "images/"+produits[i].id+"-1.png";
+
+                    let productCard = document.createElement("div");
+                        productCard.className = "product-card";
+                        productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+produits[i].prix+"$</p>";
+                        productCard.setAttribute("onclick", "showDetails('"+produits[i].id+"')");
+                        productCard.setAttribute("oncontextmenu", "showContextMenu('"+produits[i].id+"')");
+                        productContainer.appendChild(productCard);
+                        resultatExiste = true;
+                }
+            }
+
+            if(!resultatExiste){
+                main.innerHTML = "<div><h1>"+titre+"</h1><div class='main-content'><p>"+aucunResultatMessage+"</p></div></div>";
+            }
+
+
+
+
+
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+        });
+
+    }else if(view == "admin-view"){
+
+        fetch(langue + '.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur lors de la récupération des données');
+            }
+            return response.json();
+        })
+        .then(data => {
+            let titre = data.adminView.titre;
+            let labelUtilisateur = data.adminView.labelUtilisateur;
+            let labelPassword = data.adminView.labelPassword;
+            let btnSubmit = data.adminView.btnSubmit;
+            let texte = data.adminView.texte;
+            let btnSauvegarder = data.adminView.btnSauvegarder;
+            let btnDeconnection = data.adminView.btnDeconnection;
+
+            document.getElementById("a-element-accueil").classList.remove("active");
+            document.getElementById("a-element-accueil").innerText = data.navigation.accueil;
+
+            document.getElementById("a-element-arbres").classList.remove("active");
+            document.getElementById("a-element-arbres").innerText = data.navigation.arbre;
+
+            document.getElementById("a-element-fleurs").classList.remove("active");
+            document.getElementById("a-element-fleurs").innerText = data.navigation.fleurs;
+
+            document.getElementById("a-element-materiel").classList.remove("active");
+            document.getElementById("a-element-materiel").innerText = data.navigation.materiel;
+
+            document.getElementById("a-element-panier").classList.remove("active");
+            document.getElementById("a-element-panier").innerText = data.navigation.panier;
+
+            document.getElementById("a-element-contact").classList.remove("active");
+            document.getElementById("a-element-contact").innerText = data.navigation.contact;
+
+            document.getElementById("a-element-garantie").classList.remove("active");
+            document.getElementById("a-element-garantie").innerText = data.navigation.garantie;
+
+            document.getElementById("a-element-admin").classList.add("active");
+            
+            main.innerHTML = 
+            `<div>
+                <h1>`+titre+`</h1>
+                    <div id="login-section">
+                        <label>`+labelUtilisateur+` :</label>
+                        <input type="text" id="username" required>
+                        <br>
+                        <label>`+labelPassword+` :</label>
+                        <input type="password" id="password" required>
+                        <button id="submit-btn" onclick="login()">`+btnSubmit+`</button>
+                    </div>
+                    <div id="admin-section" style="display:none;">
+                        <p>`+texte+`</p>
+                        <textarea id="content"></textarea><br>
+                        <button id="save-button">`+btnSauvegarder+`</button>
+                        <button id="logout-button">`+btnDeconnection+`</button>
+                    </div>
+            </div>`;
+           
+              
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+        });
+
     }
     
     
@@ -579,37 +892,6 @@ searchBarInput.addEventListener("keyup", function (event) {
 });
 
 function search(){
+    main.className = "search-view";
     changeView("search-view");
-
-    let productContainer = document.getElementById("product-container");
-
-    let searchBarValue = document.getElementById("search-bar-input").value;
-    let searchBar = searchBarValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    
-    let resultatExiste = false;
-
-    for(let i = 0;i < produits.length;i++){
-    
-        let produitNom = produits[i].nom.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        
-        if(produitNom.startsWith(searchBar)){
-            let imgSrc = "images/"+produits[i].id+"-1.png";
-
-            let productCard = document.createElement("div");
-                productCard.className = "product-card";
-                productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+produits[i].prix+"$</p>";
-                productCard.setAttribute("onclick", "showDetails('"+produits[i].id+"')");
-                productCard.setAttribute("oncontextmenu", "showContextMenu('"+produits[i].id+"')");
-                productContainer.appendChild(productCard);
-                resultatExiste = true;
-        }
-    }
-
-    if(!resultatExiste){
-        main.innerHTML = "<div><h1>Voici les résultats...</h1><div class='main-content'><p>Aucun produits n'a été trouvé</p></div></div>";
-    }
-
-
-
-
 }

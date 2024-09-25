@@ -135,14 +135,6 @@ function findCurrencyByCountryName(countryName) {
     return matchingCurrency || null;
 }
 
-function search() {
-    const query = document.getElementById('search-bar-input').value;
-    //console.log("Searching for:", query);
-}
-
-
-
-
 function updatePrices(selectedCurrency, exchangeRate) {
     const priceElements = document.querySelectorAll('.price');  
     priceElements.forEach(priceElement => {

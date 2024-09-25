@@ -408,3 +408,24 @@ strong{
     font-size:1em;
     line-height:2em;
 }
+
+#login-section{
+    display:flex;
+    flex-direction:column;
+    text-align: left;
+    width:500px;
+    margin:0 auto;
+}
+
+#login-section input{
+    height:50px;
+    padding:10px;
+    box-sizing: border-box;
+}
+
+#admin-section textarea{
+    min-width:500px;
+    max-width:500px;
+    min-height:500px;
+    max-height:500px;
+}
