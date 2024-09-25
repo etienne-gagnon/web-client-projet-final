@@ -1,7 +1,8 @@
+//Fonction pour se connecter au menu Admin
 function login(){
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    
+    // Seule l'admin avec les bon code peu y accéder.
     if(username === 'admin' && password === 'admin'){
         localStorage.setItem('logged_in', 'true');
         showAdminSection();
@@ -10,16 +11,14 @@ function login(){
         alert('Identifiant ou mot de passe incorrect');
     }
 }
-function logout() {
-    localStorage.removeItem('logged_in');
-    window.location.href = 'charles.html';
-}
-document.getElementById('logout-button').addEventListener('click', logout);
 
+// Fonction pour pouvoir voir les éléments modifiables.
 function showAdminSection() {
     document.getElementById('login-section').style.display = 'none';
     document.getElementById('admin-section').style.display = 'block';
 }
+
+// Fonction pour charger tout ce que contient les element json.
 function load_content_product() {
     const textarea = document.getElementById('content');
 
@@ -39,6 +38,7 @@ function load_content_product() {
             textarea.value = "Erreur lors du chargement des données JSON.";
         })
 }
+// Fonction pour sauvegarder
 function saveInFile(jsonText, fileName) {
     const a = document.createElement('a');
     const blob = new Blob([jsonText], {type: 'application/json'});
@@ -46,9 +46,11 @@ function saveInFile(jsonText, fileName) {
     a.download = fileName;
     a.click();
 }
-document.getElementById('save-button').addEventListener('click', function() {
+
+// Pour pouvoir intéragir et appeler la fonciton dans le script principale.
+function saveBtn(){
+    document.getElementById('save-button').addEventListener('click', function() {
     const content = document.getElementById('content').value;
-    if (confirm("Êtes-vous sûr de vouloir écraser le fichier Charles.json existant ?")) {
-        saveInFile(content, langue + '.json');
-    }
-})
+    saveInFile(content, langue + '.json');
+    })
+}

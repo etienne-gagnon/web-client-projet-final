@@ -647,7 +647,7 @@ function changeView(view){
                         <button id="logout-button" onclick="changeView('admin-view')">`+btnDeconnection+`</button>
                     </div>
             </div>`;
-           
+            saveBtn();  // Appel de la fonction pour intéragir avec
               
         })
         .catch(error => {
