@@ -634,10 +634,10 @@ function changeView(view){
                         <p>`+texte+`</p>
                         <textarea id="content"></textarea><br>
                         <button id="save-button">`+btnSauvegarder+`</button>
-                        <button id="logout-button">`+btnDeconnection+`</button>
+                        <button id="logout-button" onclick="changeView('admin-view')">`+btnDeconnection+`</button>
                     </div>
             </div>`;
-           
+            saveBtn();  // Appel de la fonction pour intéragir avec
               
         })
         .catch(error => {
