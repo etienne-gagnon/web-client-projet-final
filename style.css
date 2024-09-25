@@ -428,4 +428,5 @@ strong{
     max-width:500px;
     min-height:500px;
     max-height:500px;
+    white-space: pre;
 }

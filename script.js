@@ -1,4 +1,4 @@
-// Produits 
+// Produits
 let produits = [];
 
 // Variables 
@@ -8,6 +8,10 @@ let menuElements = document.getElementsByClassName("menuElements");
 let nav = document.getElementById("nav");
 let main = document.getElementById("main");
 let langue = "Francais";
+let currentCurrencyTaux = "";
+let currentCurrencySymbol = "&";
+
+
 
 function fetchProduits() {
     return fetch(langue + '.json')
@@ -50,11 +54,13 @@ selectedLangue.addEventListener("change", function changeLangue() {
     closeDetail();
 
     changeView("accueil-view");
-    
+
     fetchProduits().then(() => {
         let currentView = document.getElementById("main").className;
         changeView(currentView);
     });
+
+
 });
 
 
@@ -83,6 +89,8 @@ function changeView(view){
 
     if(view == "accueil-view" || view == "home-view" ) {
 
+
+        
         fetch(langue + '.json')
         .then(response => {
             if (!response.ok) {
@@ -167,6 +175,8 @@ function changeView(view){
 
             let productContainer = document.getElementById("product-container");
 
+            console.log(currentCurrencyTaux);
+
             for(let i = 0;i < produits.length;i++){
                 if(produits[i].categories == "arbre" || produits[i].categories == "tree" ){
                     
@@ -175,7 +185,7 @@ function changeView(view){
                         let productCard = document.createElement("div");
     
                             productCard.className = "product-card";
-                            productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+produits[i].prix+"$</p>";
+                            productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+((produits[i].prix * currentCurrencyTaux).toFixed(2) * currentCurrencyTaux).toFixed(2)+" "+currentCurrencySymbol+"</p>";
                             productCard.setAttribute("onclick", "showDetails('"+produits[i].id+"')");
                             productCard.setAttribute("oncontextmenu", "showContextMenu('"+produits[i].id+"')");
                             productContainer.appendChild(productCard);             
@@ -238,7 +248,7 @@ function changeView(view){
                         let productCard = document.createElement("div");
     
                             productCard.className = "product-card";
-                            productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+produits[i].prix+"$</p>";
+                            productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+(produits[i].prix * currentCurrencyTaux).toFixed(2)+" "+currentCurrencySymbol+"</p>";
                             productCard.setAttribute("onclick", "showDetails('"+produits[i].id+"')");
                             productCard.setAttribute("oncontextmenu", "showContextMenu('"+produits[i].id+"')");
                             productContainer.appendChild(productCard);             
@@ -297,7 +307,7 @@ function changeView(view){
                         let productCard = document.createElement("div");
     
                             productCard.className = "product-card";
-                            productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+produits[i].prix+"$</p>";
+                            productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+(produits[i].prix * currentCurrencyTaux).toFixed(2)+" "+currentCurrencySymbol+"</p>";
                             productCard.setAttribute("onclick", "showDetails('"+produits[i].id+"')");
                             productCard.setAttribute("oncontextmenu", "showContextMenu('"+produits[i].id+"')");
                             productContainer.appendChild(productCard);             
@@ -378,7 +388,7 @@ function changeView(view){
 
             for(let i = 0;i<panier.length;i++){
                 let newRow = document.createElement("tr");
-                    newRow.innerHTML = "<tr><td>"+panier[i][3]+"</td><td>"+panier[i][1]+"</td><td>"+panier[i][2]+" $</td><td>"+(panier[i][2]*panier[i][3]).toFixed(2)+" $</td></tr>";
+                    newRow.innerHTML = "<tr><td>"+panier[i][3]+"</td><td>"+panier[i][1]+"</td><td>"+panier[i][2]+" "+currentCurrencySymbol+"</td><td>"+(panier[i][2]*panier[i][3]).toFixed(2)+" "+currentCurrencySymbol+"</td></tr>";
                     table.append(newRow);
                     
                     sousTotal += panier[i][2]*panier[i][3];
@@ -395,7 +405,7 @@ function changeView(view){
                 let taxes = parseFloat(tps) + parseFloat(tvq);
                 let total = parseFloat(taxes) + parseFloat(sousTotalArrondie);
 
-                totalContainer.innerHTML = "<tr><td>"+titreLigneSousTotal+" :</td><td>"+sousTotalArrondie+" $</td></tr><tr><td>"+titreLigneTPS+" :</td><td>"+tps+" $</td></tr><tr><td>"+titreLigneTVQ+" :</td><td>"+tvq+" $</td></tr><tr><td>"+titreLigneTotal+" :</td><td>"+total.toFixed(2)+" $</td></tr>";
+                totalContainer.innerHTML = "<tr><td>"+titreLigneSousTotal+" :</td><td>"+sousTotalArrondie+" "+currentCurrencySymbol+"</td></tr><tr><td>"+titreLigneTPS+" :</td><td>"+tps+" "+currentCurrencySymbol+"</td></tr><tr><td>"+titreLigneTVQ+" :</td><td>"+tvq+" "+currentCurrencySymbol+"</td></tr><tr><td>"+titreLigneTotal+" :</td><td>"+total.toFixed(2)+" "+currentCurrencySymbol+"</td></tr>";
 
                 container.append(totalContainer);
 
@@ -557,7 +567,7 @@ function changeView(view){
 
                     let productCard = document.createElement("div");
                         productCard.className = "product-card";
-                        productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+produits[i].prix+"$</p>";
+                        productCard.innerHTML = "<img alt='img' src='"+imgSrc+"'><p>"+produits[i].nom+"<br>"+(produits[i].prix * currentCurrencyTaux).toFixed(2)+" "+currentCurrencySymbol+"</p>";
                         productCard.setAttribute("onclick", "showDetails('"+produits[i].id+"')");
                         productCard.setAttribute("oncontextmenu", "showContextMenu('"+produits[i].id+"')");
                         productContainer.appendChild(productCard);
@@ -634,7 +644,7 @@ function changeView(view){
                         <p>`+texte+`</p>
                         <textarea id="content"></textarea><br>
                         <button id="save-button">`+btnSauvegarder+`</button>
-                        <button id="logout-button">`+btnDeconnection+`</button>
+                        <button id="logout-button" onclick="changeView('admin-view')">`+btnDeconnection+`</button>
                     </div>
             </div>`;
            
@@ -664,9 +674,9 @@ function showDetails(id){
                 let imgSrc = "images/"+produits[i].id+"-"+imgNumber+".png";
                 
                 if(produits[i].stock == 0){
-                    detailView.innerHTML = "<div id='detail-view'><button id='close-btn' onclick='closeDetail()'>X</button><div id='img-container'><img src='"+imgSrc+"' class='active-img'><div><button id='prev' onclick='prevImg(1,"+id+")' class='change-img-btn' ><</button><button id='next' onclick='nextImg(1,"+id+")' class='change-img-btn'>></button></div></div><div id='info-container'><h1>"+produits[i].nom+"</h1><p>"+produits[i].description+"</p><strong>"+produits[i].prix+"$</strong><label>Quantité : </label><input id='selected-qte-produit-"+produits[i].id+"' type='number' value='1'><button id='add-btn' onclick='addToCart("+produits[i].id+")' disabled>Ajouter au panier</button><p class='erreur'>"+produits[i].stock+" items restants</p><div></div>";
+                    detailView.innerHTML = "<div id='detail-view'><button id='close-btn' onclick='closeDetail()'>X</button><div id='img-container'><img src='"+imgSrc+"' class='active-img'><div><button id='prev' onclick='prevImg(1,"+id+")' class='change-img-btn' ><</button><button id='next' onclick='nextImg(1,"+id+")' class='change-img-btn'>></button></div></div><div id='info-container'><h1>"+produits[i].nom+"</h1><p>"+produits[i].description+"</p><strong>"+(produits[i].prix * currentCurrencyTaux).toFixed(2)+" "+currentCurrencySymbol+"</strong><label>Quantité : </label><input id='selected-qte-produit-"+produits[i].id+"' type='number' value='1'><button id='add-btn' onclick='addToCart("+produits[i].id+")' disabled>Ajouter au panier</button><p class='erreur'>"+produits[i].stock+" items restants</p><div></div>";
                 }else{
-                    detailView.innerHTML = "<div id='detail-view'><button id='close-btn' onclick='closeDetail()'>X</button><div id='img-container'><img src='"+imgSrc+"' class='active-img'><div><button id='prev' onclick='prevImg(1,"+id+")' class='change-img-btn' ><</button><button id='next' onclick='nextImg(1,"+id+")' class='change-img-btn'>></button></div></div><div id='info-container'><h1>"+produits[i].nom+"</h1><p>"+produits[i].description+"</p><strong>"+produits[i].prix+"$</strong><label>Quantité : </label><input id='selected-qte-produit-"+produits[i].id+"' type='number' value='1'><button id='add-btn' onclick='addToCart("+produits[i].id+")'>Ajouter au panier</button><p id='erreur-stock-"+produits[i].id+"' class='erreur' hidden></p><p>"+produits[i].stock+" items restants</p></div>";
+                    detailView.innerHTML = "<div id='detail-view'><button id='close-btn' onclick='closeDetail()'>X</button><div id='img-container'><img src='"+imgSrc+"' class='active-img'><div><button id='prev' onclick='prevImg(1,"+id+")' class='change-img-btn' ><</button><button id='next' onclick='nextImg(1,"+id+")' class='change-img-btn'>></button></div></div><div id='info-container'><h1>"+produits[i].nom+"</h1><p>"+produits[i].description+"</p><strong>"+(produits[i].prix * currentCurrencyTaux).toFixed(2)+" "+currentCurrencySymbol+"</strong><label>Quantité : </label><input id='selected-qte-produit-"+produits[i].id+"' type='number' value='1'><button id='add-btn' onclick='addToCart("+produits[i].id+")'>Ajouter au panier</button><p id='erreur-stock-"+produits[i].id+"' class='erreur' hidden></p><p>"+produits[i].stock+" items restants</p></div>";
                 }
         
                 
@@ -894,4 +904,168 @@ searchBarInput.addEventListener("keyup", function (event) {
 function search(){
     main.className = "search-view";
     changeView("search-view");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    countryoption();
+    currencyoption();
+    detectUserLocation();
+    
+    const countrySelect = document.getElementById('country-option');
+    const currencySelect = document.getElementById('currency-option');
+
+    if (countrySelect ||currencySelect ) {
+        countrySelect.addEventListener('change', (event) => {
+            const selectedCountryName = event.target.options[event.target.selectedIndex].text; // Get the country name
+            updateCurrencyByCountry(selectedCountryName);
+        
+        });
+    }
+
+});
+
+
+function countryoption() {
+    fetch('https://freetestapi.com/api/v1/countries')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        
+        .then(data => {
+            //console.log('Countries API Response:', data);
+            const countrySelect = document.getElementById('country-option');
+            if (countrySelect && Array.isArray(data)) {
+                data.forEach(country => {
+                    let countryName = country.name;
+
+                    const option = document.createElement('option');
+                    option.value = country.id;  
+                    option.text = countryName.substring(0,15); 
+                    countrySelect.appendChild(option);
+                    
+                });
+                
+            } else {
+                console.error('Invalid country data structure or select element not found');
+            }
+        })
+        .catch(error => console.error('Error fetching countries:', error));
+}
+
+
+let currencyData = []; 
+
+function currencyoption() {
+    return fetch('https://freetestapi.com/api/v1/currencies')
+        .then(response => response.json())
+        .then(data => {
+
+            //console.log(data)
+            //console.log('Currencies API Response:', data); 
+            currencyData = data; 
+
+            //console.log('Currency Data:', currencyData); 
+
+            const currencySelect = document.getElementById('currency-option');
+            if (currencySelect) {
+                
+                currencyData.forEach(currency => {
+                    const option = document.createElement('option');
+                    option.value = currency.code; 
+                    option.text = currency.code; 
+                    currencySelect.appendChild(option);
+                });
+            } else {
+                console.error('Currency select element not found');
+            }
+        })
+        .catch(error => console.error('Error fetching currencies:', error));
+}
+
+
+function detectUserLocation() {
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            const userIp = data.ip;
+            getCountryFromIP(userIp);
+        })
+        .catch(error => console.error('Error fetching IP:', error));
+}
+
+function getCountryFromIP(ip) {
+    fetch(`https://ipapi.co/${ip}/json/`)
+        .then(response => response.json())
+        .then(data => {
+            const countrySelect = document.getElementById('country-option');
+            const countryName = data.country_name; 
+
+    
+            if (countrySelect && countryName) {
+                const matchingOption = Array.from(countrySelect.options).find(option => option.text === countryName);
+                if (matchingOption) {
+                    countrySelect.value = matchingOption.value;
+                }
+                updateCurrencyByCountry(countryName);  
+            } else {
+                console.error('Country select element not found or country name is undefined');
+            }
+        })
+        .catch(error => console.error('Error fetching country by IP:', error));
+}
+
+function updateCurrencyByCountry(countryName) {
+    const currencySelect = document.getElementById('currency-option');
+    const matchingCurrency = findCurrencyByCountryName(countryName); 
+
+    if (currencySelect && matchingCurrency) {
+        currencySelect.value = matchingCurrency.code;
+
+        console.log(currentCurrencyTaux);
+        currentCurrencyTaux = matchingCurrency.exchange_rate;
+        currentCurrencySymbol = matchingCurrency.symbol;
+
+        let currentPage = main.className;
+        changeView("accueil-view");
+        changeView(currentPage);
+        //console.log(`Currency updated to: ${matchingCurrency.code}`);
+        
+    } else {
+        console.warn(`No currency found for country: ${countryName}`);
+    }
+}
+
+
+function findCurrencyByCountryName(countryName) {
+    //console.log(`Looking for currency for country: ${countryName}`);
+    //console.log('Currency Data:', currencyData);
+    
+    const matchingCurrency = currencyData.find(currency => 
+        currency.countries.includes(countryName)  
+    );
+
+    if (!matchingCurrency) {
+        console.warn(`No currency found for country: ${countryName}`);
+    }
+
+    return matchingCurrency || null;
 }
