@@ -1,6 +1,5 @@
 {
-    "navigation":
-    {
+    "navigation": {
         "accueil": "Home",
         "arbre": "Trees",
         "fleurs": "Flowers",
@@ -12,29 +11,23 @@
         "btnFr": "French",
         "btnEn": "English"
     },
-
     "accueilView": {
         "titre": "Home",
         "texte": "Discover a space where nature comes to life and flourishes. Whether you are a gardening enthusiast or a landscaping professional, our nursery offers a wide selection of high-quality plants, trees, and shrubs. Let yourself be inspired by our passion for greenery and transform your garden into a true haven of peace."
     },
-    
     "arbresView": {
-            "titre": "Trees",
-            "texte": "Explore our full range of trees!"
+        "titre": "Trees",
+        "texte": "Explore our full range of trees!"
     },
-    
     "fleursView": {
         "titre": "Flowers",
         "texte": "Explore our full range of flowers!"
     },
-    
     "materielView": {
         "titre": "Tools",
         "texte": "Explore our full range of tools!"
     },
-
-    "panierView":
-    {
+    "panierView": {
         "titre": "Cart",
         "panierVideTexte": "Your cart is empty !",
         "titreColonneQuantite": "Quantity",
@@ -47,27 +40,19 @@
         "titreLigneTotal": "Total",
         "btnSubmit": "Place order"
     },
-    
-    "contactView":
-    {
+    "contactView": {
         "titre": "Contact",
         "texte": "<p>We are always happy to answer your questions and help you find the perfect plants for your garden. <br><br> Feel free to reach out to us through the following means:</p><ul><li><strong>Address:</strong> 123 Rue des Jardins, Ville des Fleurs, QC, G1A 2B3</li><li><strong>Phone:</strong> (123) 456-7890</li><li><strong>Email:</strong> <a href='mailto:contact@lapeppiniere.com'>contact@lapeppiniere.com</a></li><li><strong>Opening Hours:</strong> Monday to Friday: 9:00 AM - 6:00 PM, Saturday: 9:00 AM - 5:00 PM, Sunday: Closed</li></ul>"
     },
-
-    "garantieView":
-    {
+    "garantieView": {
         "titre": "Waranty",
         "texte": "<p>At La Pépinière, your satisfaction is our priority. We are committed to providing you with the highest quality plants, carefully selected and packaged to ensure they arrive in perfect condition at your home.</p><ul><li><strong>Healthy Plants:</strong> Every plant shipped is inspected by our experts to ensure it is in perfect health, free from pests and diseases.</li><li><strong>100% Satisfaction:</strong> If for any reason you are not completely satisfied with your purchase, we will replace the affected plant or offer you a store credit for future purchases.</li><li><strong>Secure Delivery:</strong> We use secure packaging methods to ensure that your plants arrive intact, ready to beautify your space. If your plant is damaged during transport, we will replace it at no extra cost.</li></ul><p><strong>Warranty Conditions:</strong></p><ul><li>The claim must be made within 7 days of receiving the order.</li><li>Claims must be accompanied by clear photos of the affected plant and its packaging.</li></ul><p>At <strong>La Pépinière</strong>, we are proud of the quality of our plants and our customer service. We are committed to making your online shopping experience simple, pleasant, and worry-free.</p>"
     },
-
-    "searchView":
-    {
+    "searchView": {
         "titre": "Here's the results...",
         "aucunResultatMessage": "No products were found."
     },
-
-    "adminView":
-    {
+    "adminView": {
         "titre": "Admin",
         "labelUtilisateur": "Username",
         "labelPassword": "Password",
@@ -76,14 +61,13 @@
         "btnSauvegarder": "Save",
         "btnDeconnection": "logout"
     },
-
     "produits": [
         {
             "id": 1,
             "nom": "Eternal Rose",
             "description": "A classic rose with bright red flowers, perfect for adding a romantic touch to your garden. Resistant to diseases and easy to maintain, it blooms throughout the summer.",
             "prix": 29.99,
-            "wikipedia": "https://fr.wikipedia.org/wiki/Rosier",        
+            "wikipedia": "https://fr.wikipedia.org/wiki/Rosier",
             "categories": "tree",
             "stock": 5
         },
@@ -92,7 +76,7 @@
             "nom": "Sugar Maple",
             "description": "The sugar maple is an iconic tree of Canada, known for its beautiful autumn colors and maple syrup. It can reach a height of 25 to 35 meters, ideal for large gardens.",
             "prix": 79.99,
-            "wikipedia": "https://fr.wikipedia.org/wiki/%C3%89rable_%C3%A0_sucre",  
+            "wikipedia": "https://fr.wikipedia.org/wiki/%C3%89rable_%C3%A0_sucre",
             "categories": "tree",
             "stock": 5
         },
@@ -101,7 +85,7 @@
             "nom": "Douglas Fir",
             "description": "A majestic conifer, often used as a Christmas tree. The Douglas fir is appreciated for its durable wood and slender form. It is also perfect for creating natural hedges.",
             "prix": 99.99,
-            "wikipedia": "https://fr.wikipedia.org/wiki/Pseudotsuga_menziesii",  
+            "wikipedia": "https://fr.wikipedia.org/wiki/Pseudotsuga_menziesii",
             "categories": "tree",
             "stock": 5
         },
@@ -110,7 +94,7 @@
             "nom": "Red Oak",
             "description": "This robust oak is famous for its valuable wood and longevity. It offers beautiful red foliage in autumn and can live for several centuries. Perfect for adding a touch of grandeur to your garden.",
             "prix": 89.99,
-            "wikipedia": "https://fr.wikipedia.org/wiki/Ch%C3%AAne_rouge_d%27Am%C3%A9rique",  
+            "wikipedia": "https://fr.wikipedia.org/wiki/Ch%C3%AAne_rouge_d%27Am%C3%A9rique",
             "categories": "tree",
             "stock": 5
         },
@@ -119,7 +103,7 @@
             "nom": "Flowering Cherry",
             "description": "Also known as the Japanese cherry, this tree is famous for its beautiful pink or white flowers in spring. Ideal for small gardens, it adds a touch of ephemeral and delicate beauty.",
             "prix": 69.99,
-            "wikipedia": "https://fr.wikipedia.org/wiki/Cerisier",  
+            "wikipedia": "https://fr.wikipedia.org/wiki/Cerisier",
             "categories": "tree",
             "stock": 5
         },
@@ -128,7 +112,7 @@
             "nom": "Weeping Willow",
             "description": "The weeping willow is a majestic tree, known for its long, drooping branches. It is perfect for wet areas and provides a romantic setting near a pond or stream.",
             "prix": 89.99,
-            "wikipedia": "https://fr.wikipedia.org/wiki/Saule_pleureur",  
+            "wikipedia": "https://fr.wikipedia.org/wiki/Saule_pleureur",
             "categories": "tree",
             "stock": 5
         },
@@ -137,7 +121,7 @@
             "nom": "Magnolia",
             "description": "Magnolia is appreciated for its large, fragrant flowers that appear in spring. It is often planted as an ornamental tree in gardens, where it catches the eye with its spectacular bloom.",
             "prix": 79.99,
-            "wikipedia": "https://fr.wikipedia.org/wiki/Magnolia",  
+            "wikipedia": "https://fr.wikipedia.org/wiki/Magnolia",
             "categories": "tree",
             "stock": 5
         },
@@ -146,7 +130,7 @@
             "nom": "White Birch",
             "description": "This beautiful tree with white, smooth bark is an excellent choice for bringing brightness to a garden. The white birch grows quickly and is resistant to cold conditions.",
             "prix": 74.99,
-            "wikipedia": "https://fr.wikipedia.org/wiki/Bouleau_%C3%A0_papier",  
+            "wikipedia": "https://fr.wikipedia.org/wiki/Bouleau_%C3%A0_papier",
             "categories": "tree",
             "stock": 5
         },
@@ -155,7 +139,7 @@
             "nom": "Snow Queen",
             "description": "This variety of white rose, also known as 'Snow Queen', is renowned for its abundant and continuous blooming. Its fragrant and elegant flowers brighten gardens from spring to autumn. Perfect for creating flowering masses or fragrant hedges.",
             "prix": 24.99,
-            "wikipedia": "https://fr.wikipedia.org/wiki/Edelweiss",  
+            "wikipedia": "https://fr.wikipedia.org/wiki/Edelweiss",
             "categories": "flower",
             "stock": 5
         },
@@ -164,7 +148,7 @@
             "nom": "Lavender",
             "description": "Lavender 'Grosso' is an aromatic plant with an enchanting fragrance, appreciated for its spikes of purple flowers. Ideal for dry and sunny gardens, it attracts bees and butterflies, while being drought-resistant. Perfect for borders or pots.",
             "prix": 14.99,
-            "wikipedia": "https://fr.wikipedia.org/wiki/Lavande",  
+            "wikipedia": "https://fr.wikipedia.org/wiki/Lavande",
             "categories": "flower",
             "stock": 5
         },
@@ -173,7 +157,7 @@
             "nom": "Shovel",
             "description": "Robust and durable garden shovel, ideal for digging, planting, and turning soil. Ergonomic design for optimal comfort during use.",
             "prix": 14.99,
-            "wikipedia": "https://fr.wikipedia.org/wiki/Pelle_(outil)",  
+            "wikipedia": "https://fr.wikipedia.org/wiki/Pelle_(outil)",
             "categories": "equipment",
             "stock": 20
         },
@@ -182,7 +166,7 @@
             "nom": "Soil",
             "description": "High-quality soil, perfect for enriching your garden's soil and improving the growth of your plants. Suitable for all types of plants and flowers.",
             "prix": 9.99,
-            "wikipedia": "https://fr.wikipedia.org/wiki/Terreau",  
+            "wikipedia": "https://fr.wikipedia.org/wiki/Terreau",
             "categories": "equipment",
             "stock": 30
         }

@@ -1,13 +1,13 @@
 //Fonction pour se connecter au menu Admin
-function login(){
+function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     // Seule l'admin avec les bon code peu y accéder.
-    if(username === 'admin' && password === 'admin'){
+    if (username === 'admin' && password === 'admin') {
         localStorage.setItem('logged_in', 'true');
         showAdminSection();
         load_content_product();
-    }else {
+    } else {
         alert('Identifiant ou mot de passe incorrect');
     }
 }
@@ -41,16 +41,16 @@ function load_content_product() {
 // Fonction pour sauvegarder
 function saveInFile(jsonText, fileName) {
     const a = document.createElement('a');
-    const blob = new Blob([jsonText], {type: 'application/json'});
+    const blob = new Blob([jsonText], { type: 'application/json' });
     a.href = URL.createObjectURL(blob);
     a.download = fileName;
     a.click();
 }
 
 // Pour pouvoir intéragir et appeler la fonciton dans le script principale.
-function saveBtn(){
-    document.getElementById('save-button').addEventListener('click', function() {
-    const content = document.getElementById('content').value;
-    saveInFile(content, langue + '.json');
+function saveBtn() {
+    document.getElementById('save-button').addEventListener('click', function () {
+        const content = document.getElementById('content').value;
+        saveInFile(content, langue + '.json');
     })
 }
