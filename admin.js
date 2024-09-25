@@ -48,7 +48,6 @@ function saveInFile(jsonText, fileName) {
 }
 document.getElementById('save-button').addEventListener('click', function() {
     const content = document.getElementById('content').value;
-    if (confirm("Êtes-vous sûr de vouloir écraser le fichier Charles.json existant ?")) {
         saveInFile(content, langue + '.json');
     }
 })
